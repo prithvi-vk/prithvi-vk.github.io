@@ -63,10 +63,16 @@ img {
 }
 
 .nav-logo {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text);
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover .logo-icon {
+  transform: rotate(30deg);
 }
 
 .nav-links {
@@ -300,22 +306,6 @@ img {
 }
 
 /* --- Contact --- */
-
-.contact-card {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.profile-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--border);
-  flex-shrink: 0;
-}
 
 .contact-links {
   list-style: none;
