@@ -1,17 +1,27 @@
 ---
 layout: page
 title: About
-subtitle: Building the future of work, one automation at a time.
+subtitle: From teaching AI to deploying it. The leap was inevitable.
 permalink: /about/
 ---
 
-I'm Prithvi VK — an AI automation consultant who helps small and medium businesses unlock the power of agentic workflows.
+## The Backstory
 
-After years in tech, I made the leap to focus on what I believe is the most transformative shift in how businesses operate: **AI agents that don't just assist, but execute.**
+Until March 26, 2026, I was at a startup that upskilled working professionals in AI — designing structured programs ranging from weeks to months, for coders and non-coders alike. I watched hundreds of professionals go through the journey of understanding what AI could do.
 
-## What I Do
+And that's exactly the problem I kept running into.
 
-I work with SMBs to identify high-impact processes that can be automated using AI — then I build and deploy those automations. My toolkit includes:
+Everyone was *learning* AI. Almost nobody was *deploying* it. Companies would send their teams through courses, tick the "AI readiness" box, and go right back to running their operations the old way — manually, slowly, expensively.
+
+I didn't want to keep teaching people what AI *could* do. **I wanted to show businesses what AI *will* do — by building it for them.**
+
+So I resigned. Not to take a break. Not to "explore opportunities." To go directly to the businesses that are drowning in repetitive work and wire AI into their operations — today, not after another six months of upskilling.
+
+## What I Do Now
+
+I build **agentic workflows** — AI systems that don't just assist, but *execute*. Multi-step, context-aware, decision-making automations that replace hours of manual work with minutes of intelligent processing.
+
+My toolkit:
 
 - **Claude Code** for intelligent task execution and code generation
 - **Playwright & browser automation** for web-based workflow automation
@@ -26,10 +36,12 @@ I don't believe in over-engineered solutions. I believe in:
 2. **Building fast** — deploying a working automation in days, not months
 3. **Iterating with you** — refining until it runs like clockwork
 
-## Why Agentic Workflows?
+## Why This Matters
 
-Traditional automation is brittle. It breaks when inputs change. Agentic workflows are different — they use AI to *understand context*, *make decisions*, and *adapt to edge cases*. That's the difference between a script and an intelligent system.
+The gap between "AI-aware" and "AI-powered" is where most businesses are stuck right now. They've read the articles. They've sat through the webinars. They might have even completed a course.
 
-If you're spending hours on tasks that follow a pattern — email triage, data entry, report generation, customer onboarding — there's a good chance I can automate it.
+But their operations? Still manual. Still slow. Still expensive.
+
+I'm here to close that gap. One workflow at a time.
 
 <a href="/contact" class="btn">Let's talk</a>
