@@ -5,7 +5,12 @@ subtitle: Let's build something that saves you hours every week.
 permalink: /contact/
 ---
 
-I'm currently taking on new consulting engagements. If you're an SMB looking to automate workflows with AI, I'd love to hear from you.
+<div class="contact-card">
+  <img src="https://media.licdn.com/dms/image/v2/D5603AQE4MjP5pABXBA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719817666168?e=1776297600&v=beta&t=g5sghHO6WpjiOjzhnVMtLhFAFotrMwPXckay6Vb7He4" alt="Prithvi VK" class="profile-photo">
+  <div>
+    <p>I'm currently taking on new consulting engagements. If you're an SMB looking to automate workflows with AI, I'd love to hear from you.</p>
+  </div>
+</div>
 
 <ul class="contact-links">
   <li><strong>Email:</strong> <a href="mailto:prithvi.vadakemuri@gmail.com">prithvi.vadakemuri@gmail.com</a></li>
