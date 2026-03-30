@@ -4,9 +4,30 @@ layout: default
 <article>
   <div class="post-header">
     <h1>{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
+    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }} · {{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</p>
   </div>
   <div class="post-content">
     {{ content }}
+  </div>
+  <div class="post-footer">
+    <div class="post-cta">
+      <h3>Want a system like this for your firm?</h3>
+      <p>I build AI automation systems for CA firms and SMBs. If portal monitoring, notice management, or compliance workflows are eating your team's time — let's fix that.</p>
+      <a href="/contact" class="btn">Book a free discovery call</a>
+    </div>
+    <div class="post-nav">
+      {% if page.previous.url %}
+      <a href="{{ page.previous.url | relative_url }}" class="post-nav-link post-nav-prev">
+        <span class="post-nav-label">Previous</span>
+        <span class="post-nav-title">{{ page.previous.title }}</span>
+      </a>
+      {% endif %}
+      {% if page.next.url %}
+      <a href="{{ page.next.url | relative_url }}" class="post-nav-link post-nav-next">
+        <span class="post-nav-label">Next</span>
+        <span class="post-nav-title">{{ page.next.title }}</span>
+      </a>
+      {% endif %}
+    </div>
   </div>
 </article>
