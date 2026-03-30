@@ -1,11 +1,11 @@
 ---
 layout: default
 title: Home
-description: "Prithvi VK — AI Automation Consultant. I design and deploy agentic workflows that turn complex multi-step processes into one-click operations for businesses."
+description: "Prithvi VK — AI Systems Architect. I design and deploy agentic workflows that turn complex multi-step processes into one-click operations for businesses."
 ---
 
 <div class="hero">
-  <p class="hero-label">AI Automation Consultant</p>
+  <p class="hero-label">AI Systems Architect</p>
   <h1>Turning complex workflows into competitive advantages with AI.</h1>
   <p>I design agentic systems that compress hours of multi-step processes into minutes — giving your team the leverage to focus on high-value decisions while AI handles the execution.</p>
   <a href="/contact" class="btn">Book a free discovery call</a>
