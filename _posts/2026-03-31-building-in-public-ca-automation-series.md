@@ -19,17 +19,17 @@ Most "AI automation" content is either:
 - Enterprise case studies so abstracted they're useless
 - Tutorial content that stops at "Hello World"
 
-This series is none of that. I'm shipping real systems for a real client, solving real problems — and writing about exactly what I built, what broke, what I learned, and what I'd do differently.
+This series is none of that. I'm shipping real systems, solving real problems — and writing about exactly what I built, what broke, what I learned, and what I'd do differently.
 
 If you're a CA firm thinking about automation, you'll see exactly what's possible. If you're a builder in this space, you'll get an honest technical playbook.
 
 ## The Starting Point
 
-Yesterday, I built and demonstrated the core proof-of-concept:
+I recently built and demonstrated the core proof-of-concept:
 
 **An AI agent that logs into India's Income Tax e-Filing portal, navigates to e-Proceedings, identifies new notices, downloads the PDF, extracts key details, and sends a structured summary with the document attached via WhatsApp.**
 
-It worked. First try. Against a real client portal with a real NFAC Hearing Notice u/s 250.
+It worked on the first run — against a live portal with real data.
 
 Read the full technical breakdown: [I Built an AI Agent That Checks the Income Tax Portal and Sends Notices via WhatsApp](/blog/automated-income-tax-notice-retrieval-whatsapp/)
 
@@ -81,7 +81,7 @@ If you want to get notified when new posts drop, the simplest way is to check th
 
 ## Who This Is For
 
-**CA firm founders and partners** who know their team spends too much time on portal monitoring and want to see what automation actually looks like — not a sales pitch, but the real thing.
+**CA firm founders and partners** who want to see what automation actually looks like — not a sales pitch, but the real thing being built in real time.
 
 **Developers and AI builders** interested in practical agentic workflow design — browser automation, document processing, multi-system orchestration.
 
@@ -90,8 +90,6 @@ If you want to get notified when new posts drop, the simplest way is to check th
 ## The Offer
 
 I'm taking on a limited number of CA firms as automation clients. The system I'm building is designed to be replicated — each firm gets a customized instance tuned to their client portfolio, team structure, and workflow preferences.
-
-If you've read this far, you're probably the right kind of client: someone who values their team's time, understands that portal checking is not professional work, and wants a concrete solution — not a vague "AI transformation" promise.
 
 <a href="/contact" class="btn">Book a free discovery call</a>
 
