@@ -1,0 +1,35 @@
+title: Prithvi VK
+description: AI Automation Consultant — Agentic Workflow Solutions for SMBs
+url: "https://prithvi-vk.github.io"
+baseurl: ""
+
+author:
+  name: Prithvi VK
+  email: prithvi.vadakemuri@gmail.com
+  linkedin: https://www.linkedin.com/in/prithvijay/
+  github: https://github.com/prithvi-vk
+
+permalink: /blog/:slug/
+markdown: kramdown
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+exclude:
+  - README.md
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
