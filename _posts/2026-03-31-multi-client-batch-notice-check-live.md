@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Every Morning at 8 AM, an AI Agent Checks 13 Income Tax Portals — So the CA Doesn't Have To"
+title: "2–3 Hours of Portal Checking, Done in 15 Minutes — How an AI Agent Monitors 13 Income Tax Accounts Daily"
 date: 2026-03-31
 description: "I set up a daily AI agent for a CA firm that logs into India's Income Tax e-Filing portal for each of their 13 clients every morning, checks for new notices, downloads PDFs, and sends a summary via WhatsApp and Telegram — before the team even gets to their desks."
 keywords: "daily income tax portal monitoring, automated CA firm compliance, scheduled AI agent India, income tax notice alert system, e-proceedings daily check automation, chartered accountant automation daily"

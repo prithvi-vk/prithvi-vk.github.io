@@ -76,17 +76,6 @@ The implications:
 - **Audit-ready:** Every retrieval is logged — what was found, when it was checked, where it was delivered.
 - **Team leverage:** Your team focuses on responding to notices, not finding them.
 
-## This Is Post #1 — More Coming
-
-I'm building a full-scale automation suite for a CA firm. The engagement details are confidential, but the systems and architecture are being documented here.
-
-**Bookmark this page.** Upcoming posts will cover:
-- Multi-client batch monitoring with parallel agent execution
-- Automated notice classification and urgency scoring
-- Deadline sync to Google Calendar and task management tools
-- Response draft generation with client-specific data prefill
-- Packaging this as a repeatable service for CA firms
-
 ---
 
 **Interested in what this could look like for your firm?** Let's talk.

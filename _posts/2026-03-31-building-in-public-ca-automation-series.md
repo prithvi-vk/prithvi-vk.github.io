@@ -35,50 +35,6 @@ Read the full technical breakdown: [I Built an AI Agent That Checks the Income T
 
 Read the strategic context: [The CA Firm Automation Playbook](/blog/ai-compliance-automation-ca-firms-india/)
 
-## The Roadmap
-
-Here's what I'm building, roughly in order. Each item becomes a blog post (or several) as I ship it:
-
-### Phase 1: Foundation (Current)
-- [x] Single-client Income Tax portal notice retrieval
-- [x] PDF download and intelligent summarization
-- [x] WhatsApp delivery with structured message
-- [x] Multi-client batch execution — [Session log: 13 clients checked in one sitting](/blog/multi-client-batch-notice-check-live/)
-- [x] Error handling and retry logic
-- [ ] Execution logging and audit trail
-
-### Phase 2: Intelligence
-- [ ] Notice classification engine (hearing, demand, penalty, intimation)
-- [ ] Urgency scoring algorithm (days to deadline x financial impact)
-- [x] Historical notice tracking — what's new vs. what was already seen
-- [ ] Pattern detection — clients that frequently receive similar notices
-
-### Phase 3: Workflow Integration
-- [ ] Google Calendar deadline sync
-- [ ] Automated task creation in practice management tools
-- [ ] Email delivery alongside WhatsApp
-- [ ] Team assignment rules — route to the right person automatically
-
-### Phase 4: Multi-Portal Expansion
-- [ ] GST Portal monitoring
-- [ ] MCA/ROC compliance tracking
-- [ ] TDS/TRACES default monitoring
-- [ ] Consolidated compliance dashboard
-
-### Phase 5: Response Automation
-- [ ] Standard response template generation
-- [ ] Auto-population with client-specific data
-- [ ] Document assembly for appeal submissions
-- [ ] Partner review workflow with approval routing
-
-## How to Follow Along
-
-**Bookmark this page.** I'll update the roadmap checklist above as each component ships, with links to the detailed posts.
-
-New posts will appear on the [blog page](/blog) and will always link back here for context.
-
-If you want to get notified when new posts drop, the simplest way is to check this page periodically — or reach out and I'll add you to a mailing list if there's enough interest.
-
 ## Who This Is For
 
 **CA firm founders and partners** who want to see what automation actually looks like — not a sales pitch, but the real thing being built in real time.
