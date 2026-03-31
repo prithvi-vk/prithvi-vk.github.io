@@ -44,16 +44,6 @@ This isn't a one-size-fits-all portfolio. The firm's clients include:
 
 Each one has a different history on the portal. Some have one proceeding. Some have ten. The agent handles all of them the same way — log in, check, compare, report.
 
-## What Happens When the Portal Fights Back
-
-The Income Tax portal is not a well-behaved application. It throws errors, loads slowly, and has modal popups that block navigation. The agent handles all of this:
-
-**"Request is not authenticated"** — a random session error that has nothing to do with wrong credentials. The agent clicks Continue again. Works every time.
-
-**Security logout popups** — the portal asks "Are you sure you want to Logout?" every time you switch between client accounts. The agent clicks YES, waits for the redirect, and moves on. Thirteen times a day, without complaint.
-
-**Stale "New" tags** — some clients have proceedings marked as "New" on the portal that are actually years old. The agent clicks into them, checks the dates, and recognises they're not actionable. It doesn't raise false alarms.
-
 ## What the CA Actually Receives
 
 On a quiet day (most days), the CA gets a single Telegram message:
@@ -97,19 +87,6 @@ The portal doesn't send reliable email alerts. There's no API. There's no webhoo
 After a week, the firm has a complete log of every check run — dates, results, notices found. After a month, they have a compliance timeline for every client. After a quarter, they can tell any client exactly when each notice was received, when it was reviewed, and what action was taken.
 
 This isn't just monitoring. It's building an audit trail that the firm never had before.
-
-## The Stack
-
-| Component | Role |
-|-----------|------|
-| **Scheduled cron job** | Triggers the agent every morning at 8 AM |
-| **Claude Code (Opus)** | AI brain — reads the portal, makes decisions, handles errors |
-| **Playwright** | Browser automation — navigates the Angular UI, handles modals and auth flows |
-| **WhatsApp Web** | Delivers notices + summaries to the CA |
-| **Telegram Bot** | Sends daily status confirmations |
-| **Obsidian vault** | Stores Notice Logs, PDFs, and client records locally |
-
-No brittle scripts. No hardcoded selectors. The AI reads each page semantically and acts on what it understands. When the portal changes its layout — and it will — the agent adapts without code changes.
 
 ---
 
