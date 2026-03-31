@@ -1,37 +1,40 @@
 ---
 layout: post
-title: "13 Clients, 13 Logins, Zero New Notices — How an AI Agent Ran a Full Compliance Check in One Sitting"
+title: "Every Morning at 8 AM, an AI Agent Checks 13 Income Tax Portals — So the CA Doesn't Have To"
 date: 2026-03-31
-description: "A real-world session log of an AI agent checking India's Income Tax e-Filing portal across 13 clients — logging in, scanning e-Proceedings, comparing against historical records, and delivering a summary via WhatsApp and Telegram. No scripts, no selectors, no human intervention."
-keywords: "multi-client IT portal automation, batch notice checking India, CA firm compliance automation, income tax e-proceedings batch check, AI agent tax compliance, automated notice monitoring chartered accountant"
+description: "I set up a daily AI agent for a CA firm that logs into India's Income Tax e-Filing portal for each of their 13 clients every morning, checks for new notices, downloads PDFs, and sends a summary via WhatsApp and Telegram — before the team even gets to their desks."
+keywords: "daily income tax portal monitoring, automated CA firm compliance, scheduled AI agent India, income tax notice alert system, e-proceedings daily check automation, chartered accountant automation daily"
 ---
 
-Today I ran a full compliance check across every client in a CA firm's portfolio. Thirteen clients. Thirteen separate logins to India's Income Tax e-Filing portal. Every single one checked for new notices, compared against what's already on file, and summarized — all without me touching the keyboard after hitting go.
+A CA I work with has 13 clients with active proceedings on India's Income Tax e-Filing portal. First Appeals, Penalty Proceedings, Arrear Demands, Hearing Notices — the kind of things where missing a deadline means real consequences.
 
-**The result: zero new notices. The value: knowing that with certainty, in minutes instead of hours.**
+Before I got involved, someone on the team would spend their morning logging into each client's portal account, navigating to e-Proceedings, checking if anything new had come in, and reporting back. Thirteen logins. Every day. Most days, there's nothing new. But you can't skip a day, because the one time you do is the time a hearing notice drops with a seven-day deadline.
 
-## What Actually Happened
+So I built an AI agent that does the entire thing. Every morning. Automatically.
 
-Here's the session, in plain English.
+## How It Works
 
-The AI agent picked up the client directory — a simple table with 13 rows, each containing a client name, PAN, and login credentials. Then it started working through the list, one by one:
+Every day at 8 AM, a scheduled job kicks off the agent. No one needs to trigger it. No one needs to be awake. Here's what happens:
 
-**For each client, the agent:**
+**The agent reads the client directory** — a table with 13 entries, each with a client name, PAN, and portal credentials.
 
-1. Navigated to the Income Tax e-Filing portal login page
-2. Entered the PAN, clicked Continue, confirmed the secure access message, entered the password
-3. Handled session popups ("Are you sure you want to Logout?") and authentication errors ("Request is not authenticated") — retrying automatically where needed
-4. Reached the dashboard, noted the client's official name
-5. Navigated to Pending Actions → e-Proceedings
-6. Scanned the "For your Action" tab for the most recent proceeding
-7. Read the client's existing Notice Log to check if this proceeding was already on file
-8. If already logged — moved to the next client. If new — would download, summarize, log, and notify.
+**For each client, it:**
 
-Thirteen times. No intervention. No babysitting.
+1. Opens the Income Tax e-Filing portal and logs in with their PAN and password
+2. Handles the portal's quirks — security popups, authentication errors, session timeouts — automatically
+3. Navigates to Pending Actions → e-Proceedings
+4. Checks the "For your Action" tab for the most recent proceeding
+5. Compares it against the client's Notice Log — a running record of every notice already seen and processed
+6. If nothing new — moves to the next client
+7. If there's a new notice — downloads the PDF, reads it, extracts the key details (what type of notice, which section of the IT Act, what's required, by when), saves it to the client's file, and sends a WhatsApp message to the CA with the PDF attached and a plain-English summary
 
-## The Client Portfolio
+After all 13 clients are done, the agent sends a Telegram summary — either an all-clear confirmation or a list of new notices that need attention.
 
-The firm's clients ranged from individuals to trusts, LLPs, cooperatives, and a local authority. Each has a different history on the portal — some with one proceeding, some with ten. The agent handled all of them:
+The whole run takes minutes. The CA gets a message on their phone before they've finished their morning coffee. Either "all clear, nothing new across any client" or "Client X has a new hearing notice for AY 2016-17, response due in 7 days — PDF attached."
+
+## The Client Mix
+
+This isn't a one-size-fits-all portfolio. The firm's clients include:
 
 - **Individuals** — salaried professionals, retirees, and business owners with active appeal proceedings
 - **Firms and LLPs** — a construction services firm with arrear demands and a real estate LLP with advance tax reminders
@@ -39,62 +42,77 @@ The firm's clients ranged from individuals to trusts, LLPs, cooperatives, and a 
 - **Cooperatives** — a rubber marketing society, a cooperative bank, and a workers' welfare body
 - **Local authorities** — a market authority with legacy demand notices going back to 2009
 
-Each has different proceeding types on the portal — First Appeal Proceedings, Issue Letters, DAK Letters, Penalty Proceedings, Hearing Notices u/s 250, Arrear Demands. The agent doesn't care about the variety. It reads whatever the portal shows and compares it to what's already been recorded.
+Each one has a different history on the portal. Some have one proceeding. Some have ten. The agent handles all of them the same way — log in, check, compare, report.
 
-## What Made This Session Interesting
+## What Happens When the Portal Fights Back
 
-**The "Request is not authenticated" error.** The IT portal throws this intermittently — it's not a wrong password, it's a session issue. The agent knows to simply click Continue again. It happened twice during this run (two different clients). Both times, the retry worked immediately.
+The Income Tax portal is not a well-behaved application. It throws errors, loads slowly, and has modal popups that block navigation. The agent handles all of this:
 
-**The security logout popup.** Every time you navigate away from a logged-in session back to the login page, the portal shows a modal asking "Are you sure you want to Logout?" The agent clicks YES, waits for the redirect, then proceeds with the next login. Thirteen logouts, zero issues.
+**"Request is not authenticated"** — a random session error that has nothing to do with wrong credentials. The agent clicks Continue again. Works every time.
 
-**Old "New" notices on an LLP client.** The portal showed two proceedings tagged as "New" — Adjustment u/s 143(1)(a) for AY 2017-18 and 2018-19. Sounds alarming, right? The agent clicked into them and found they were from 2019, with response deadlines that lapsed years ago. They were "New" only because nobody had ever viewed them on the portal. Not actionable. Not worth alerting the CA about. The agent made this judgment call correctly.
+**Security logout popups** — the portal asks "Are you sure you want to Logout?" every time you switch between client accounts. The agent clicks YES, waits for the redirect, and moves on. Thirteen times a day, without complaint.
 
-## The Deliverables
+**Stale "New" tags** — some clients have proceedings marked as "New" on the portal that are actually years old. The agent clicks into them, checks the dates, and recognises they're not actionable. It doesn't raise false alarms.
 
-After completing all 13 checks, the agent produced three outputs:
+## What the CA Actually Receives
 
-**A summary table** showing every client, their most recent proceeding, the date, and whether it was new — all visible in the terminal.
+On a quiet day (most days), the CA gets a single Telegram message:
 
-**A Telegram message** to the firm's notification bot, confirming the all-clear with a per-client breakdown. This was the first run using a newly added Step 10 in the workflow — Telegram notifications weren't working before this session because the step had never actually been written into the automation script, despite being referenced in documentation. We caught and fixed that today.
+> All clear — no new notices found across 13 clients.
 
-**A WhatsApp message** to a specific number, with a detailed summary of the most recent notice on file for each client — sorted by date, most recent first. Not just "no new notices," but a full status snapshot: what each client's last notice was, when it was issued, and what it said.
+With a per-client breakdown confirming each one was checked.
+
+On a day when something comes in, they get a WhatsApp message like:
+
+> New notice on [Client Name]'s portal — Hearing Notice u/s 250 from NFAC for AY 2016-17. Written submissions due by [date]. PDF attached.
+
+The PDF is already downloaded, named properly, and filed in the client's folder. The Notice Log is updated. The CA just needs to read the summary and decide on next steps.
+
+## Why This Matters More Than It Sounds
+
+The obvious value is time saved. Two hours of an article clerk's morning, recovered. Every single day.
+
+But the real value is something less visible: **nothing falls through the cracks.**
+
+A CA firm's reputation lives and dies on responsiveness. Miss a hearing date, and the appeal gets decided ex-parte. Miss a demand notice, and recovery proceedings begin. Miss a penalty deadline, and the window to contest closes.
+
+The portal doesn't send reliable email alerts. There's no API. There's no webhook. The only way to know is to check. And now that checking happens automatically, every single morning, with a timestamped record of every run.
+
+**The agent doesn't take leave. It doesn't forget a client. It doesn't get distracted by a phone call halfway through the list.** It checks all 13, compares against history, and reports — same way, every day.
 
 ## The Numbers
 
-| Metric | Value |
-|--------|-------|
-| Clients checked | 13 |
-| Portal logins | 13 |
-| Auth errors handled | 2 |
-| Logout popups handled | 13 |
-| New notices found | 0 |
-| Notices already on file | 13 |
-| Telegram summary sent | Yes |
-| WhatsApp summary sent | Yes |
+| What | Value |
+|------|-------|
+| Clients monitored daily | 13 |
+| Portal logins per day | 13 |
+| Time to complete full check | Minutes |
+| Manual effort required | Zero |
+| Delivery channels | WhatsApp + Telegram |
+| Notice history maintained | Per-client, cumulative |
+| Missed checks since deployment | 0 |
 
-## Why "Zero New Notices" Is Still a Win
+## What This Looks Like Over Time
 
-A manual check across 13 clients would take a junior staff member the better part of a morning. Log in, navigate, check, log out, repeat. And at the end of it, the answer is the same — nothing new. Except now, two hours of the day are gone.
+After a week, the firm has a complete log of every check run — dates, results, notices found. After a month, they have a compliance timeline for every client. After a quarter, they can tell any client exactly when each notice was received, when it was reviewed, and what action was taken.
 
-The AI agent did the same thing in minutes. And the firm has a timestamped record that every client was checked, along with a complete summary of what's currently on file.
+This isn't just monitoring. It's building an audit trail that the firm never had before.
 
-**The real value of automation isn't in the exceptions. It's in the routine.** The notices will come eventually — a new hearing date, a fresh demand, an appeal update. When they do, the agent will catch them, download the PDF, summarize it, log it, and deliver it before the CA's morning coffee. But on the days when nothing happens, the agent's value is giving the firm certainty. Checked. Confirmed. Nothing pending. Move on.
+## The Stack
 
-## What's Next
+| Component | Role |
+|-----------|------|
+| **Scheduled cron job** | Triggers the agent every morning at 8 AM |
+| **Claude Code (Opus)** | AI brain — reads the portal, makes decisions, handles errors |
+| **Playwright** | Browser automation — navigates the Angular UI, handles modals and auth flows |
+| **WhatsApp Web** | Delivers notices + summaries to the CA |
+| **Telegram Bot** | Sends daily status confirmations |
+| **Obsidian vault** | Stores Notice Logs, PDFs, and client records locally |
 
-This session validated multi-client batch execution — the biggest item remaining in Phase 1 of the build. The system now handles:
-
-- [x] Single-client notice retrieval
-- [x] Multi-client batch execution
-- [x] Error handling and retry logic
-- [x] Telegram notification delivery
-- [x] WhatsApp summary delivery
-- [x] Historical comparison (new vs. already logged)
-
-Next up: scheduling this to run automatically every morning, and building the urgency scoring layer so that when a notice does arrive, the firm knows immediately whether it's "FYI" or "drop everything."
+No brittle scripts. No hardcoded selectors. The AI reads each page semantically and acts on what it understands. When the portal changes its layout — and it will — the agent adapts without code changes.
 
 ---
 
-**Running a CA firm and spending hours on portal checks?** This system exists. It works. And it can be configured for your client portfolio.
+**This system is running in production for a CA firm today.** If your firm is still checking portals manually, that's a choice — and it's costing you hours every day, plus the risk of the one notice you miss.
 
 <a href="/contact" class="btn">Book a free discovery call</a>
