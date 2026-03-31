@@ -33,21 +33,21 @@ Thirteen times. No intervention. No babysitting.
 
 The firm's clients ranged from individuals to trusts, LLPs, cooperatives, and a local authority. Each has a different history on the portal — some with one proceeding, some with ten. The agent handled all of them:
 
-- **Individuals** like Malapravanal Cicily, Joseph, Malini Sashidharan, Tharappel, Alex Thomas, and Joseph Jose Elamthuruthiyil
-- **Firms** like Epsilon Engineering Services and Kolakkattil Realtors LLP
-- **Trusts** like Health Care Foundation
-- **Cooperatives** like Mazdoor Bharathi, Kozhikode District Co-op Rubber Marketing Society, and Chemanchery Service Cooperative Bank
-- **Local authorities** like Urban Wholesale Market Authority
+- **Individuals** — salaried professionals, retirees, and business owners with active appeal proceedings
+- **Firms and LLPs** — a construction services firm with arrear demands and a real estate LLP with advance tax reminders
+- **Trusts** — a healthcare trust with multiple open proceedings across assessment years
+- **Cooperatives** — a rubber marketing society, a cooperative bank, and a workers' welfare body
+- **Local authorities** — a market authority with legacy demand notices going back to 2009
 
 Each has different proceeding types on the portal — First Appeal Proceedings, Issue Letters, DAK Letters, Penalty Proceedings, Hearing Notices u/s 250, Arrear Demands. The agent doesn't care about the variety. It reads whatever the portal shows and compares it to what's already been recorded.
 
 ## What Made This Session Interesting
 
-**The "Request is not authenticated" error.** The IT portal throws this intermittently — it's not a wrong password, it's a session issue. The agent knows to simply click Continue again. It happened twice during this run (Tharappel and Epsilon Engineering). Both times, the retry worked immediately.
+**The "Request is not authenticated" error.** The IT portal throws this intermittently — it's not a wrong password, it's a session issue. The agent knows to simply click Continue again. It happened twice during this run (two different clients). Both times, the retry worked immediately.
 
 **The security logout popup.** Every time you navigate away from a logged-in session back to the login page, the portal shows a modal asking "Are you sure you want to Logout?" The agent clicks YES, waits for the redirect, then proceeds with the next login. Thirteen logouts, zero issues.
 
-**Old "New" notices on Kolakkattil Realtors.** The portal showed two proceedings tagged as "New" — Adjustment u/s 143(1)(a) for AY 2017-18 and 2018-19. Sounds alarming, right? The agent clicked into them and found they were from 2019, with response deadlines that lapsed years ago. They were "New" only because nobody had ever viewed them on the portal. Not actionable. Not worth alerting the CA about. The agent made this judgment call correctly.
+**Old "New" notices on an LLP client.** The portal showed two proceedings tagged as "New" — Adjustment u/s 143(1)(a) for AY 2017-18 and 2018-19. Sounds alarming, right? The agent clicked into them and found they were from 2019, with response deadlines that lapsed years ago. They were "New" only because nobody had ever viewed them on the portal. Not actionable. Not worth alerting the CA about. The agent made this judgment call correctly.
 
 ## The Deliverables
 
@@ -55,7 +55,7 @@ After completing all 13 checks, the agent produced three outputs:
 
 **A summary table** showing every client, their most recent proceeding, the date, and whether it was new — all visible in the terminal.
 
-**A Telegram message** to the firm's bot channel (SC IT Notice Bot), confirming the all-clear with a per-client breakdown. This was the first run using a newly added Step 10 in the workflow — Telegram notifications weren't working before this session because the step had never actually been written into the automation script, despite being referenced in documentation. We caught and fixed that today.
+**A Telegram message** to the firm's notification bot, confirming the all-clear with a per-client breakdown. This was the first run using a newly added Step 10 in the workflow — Telegram notifications weren't working before this session because the step had never actually been written into the automation script, despite being referenced in documentation. We caught and fixed that today.
 
 **A WhatsApp message** to a specific number, with a detailed summary of the most recent notice on file for each client — sorted by date, most recent first. Not just "no new notices," but a full status snapshot: what each client's last notice was, when it was issued, and what it said.
 
