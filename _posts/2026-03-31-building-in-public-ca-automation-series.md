@@ -43,14 +43,14 @@ Here's what I'm building, roughly in order. Each item becomes a blog post (or se
 - [x] Single-client Income Tax portal notice retrieval
 - [x] PDF download and intelligent summarization
 - [x] WhatsApp delivery with structured message
-- [ ] Multi-client batch execution
-- [ ] Error handling and retry logic
+- [x] Multi-client batch execution — [Session log: 13 clients checked in one sitting](/blog/multi-client-batch-notice-check-live/)
+- [x] Error handling and retry logic
 - [ ] Execution logging and audit trail
 
 ### Phase 2: Intelligence
 - [ ] Notice classification engine (hearing, demand, penalty, intimation)
 - [ ] Urgency scoring algorithm (days to deadline x financial impact)
-- [ ] Historical notice tracking — what's new vs. what was already seen
+- [x] Historical notice tracking — what's new vs. what was already seen
 - [ ] Pattern detection — clients that frequently receive similar notices
 
 ### Phase 3: Workflow Integration
