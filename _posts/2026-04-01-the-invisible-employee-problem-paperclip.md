@@ -50,11 +50,7 @@ I stood up a Paperclip instance for the CA firm with two agents:
 
 **IT Notice Checker Agent:** Reports to the CEO. Runs on a 24-hour heartbeat cycle. Uses Claude as its AI runtime with browser automation to interact with the Income Tax e-Filing portal, WhatsApp Web, and Telegram.
 
-Here's what the Paperclip dashboard looks like with real run data:
-
-![Paperclip Dashboard showing IT Notice Checker agent runs with live transcripts](/assets/img/paperclip-dashboard.png)
-
-Every run is logged. You can see what the agent did, what tools it called, how long it took, and whether it succeeded. This is the kind of visibility that makes a non-technical stakeholder nod and say "okay, I get it."
+Every run is logged in the dashboard. You can see what the agent did, what tools it called, how long it took, and whether it succeeded. This is the kind of visibility that makes a non-technical stakeholder nod and say "okay, I get it."
 
 ## The Technical Setup
 
@@ -75,9 +71,7 @@ Heartbeat: 24-hour interval, wake on demand
 
 **The heartbeat system** is how agents wake up. Every 24 hours, the IT Notice Checker activates, reads the client directory, and cycles through all accounts. But the real power is the **on-demand wake API** — any external system can trigger the agent immediately.
 
-**I wired a Telegram bot** to the wake API. A simple long-polling Node.js server listens for `/check_notices` in a Telegram group and calls Paperclip's wakeup endpoint. The agent spins up, does its work, and posts progress updates back to the same group:
-
-![Paperclip agent detail view showing run history, invocation metadata, and session info](/assets/img/paperclip-agent-detail.png)
+**I wired a Telegram bot** to the wake API. A simple long-polling Node.js server listens for `/check_notices` in a Telegram group and calls Paperclip's wakeup endpoint. The agent spins up, does its work, and posts progress updates back to the same group.
 
 The notification flow during a run:
 1. **Session start** — "IT Notice Check — Starting..."
