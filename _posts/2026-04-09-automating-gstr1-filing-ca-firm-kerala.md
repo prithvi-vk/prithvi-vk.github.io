@@ -45,7 +45,7 @@ Here's what filing a single GSTR-1 manually looks like:
 5. Navigate to Returns Dashboard
 6. Pick the financial year, quarter, month
 7. Click "Prepare Online" on the GSTR-1 tile
-8. Fill Table 4A (B2B invoices) — one record at a time, or upload via JSON
+8. Fill Table 4A (B2B invoices) — one record at a time, for as many records as you have
 9. Fill Table 7 (B2C consolidated)
 10. Fill Table 12 (HSN summary) — but watch out, there are *two tabs*, one for B2B HSN codes and one for B2C, and putting an HSN under the wrong tab triggers a validation warning at summary time
 11. Fill Table 13 (Documents Issued) — invoice serials, credit note serials, cancellations
@@ -90,7 +90,7 @@ What I *will* tell you: there's no third-party captcha-solving service involved,
 
 Once logged in, the agent reads the client's input data (Tally exports, Excel files, sometimes structured WhatsApp messages from the CA team) and figures out which tables on the portal need to be filled.
 
-For high-volume tables — say, 152 B2B invoices to insurance companies — it generates a JSON file in the GST portal's specific schema and uploads it via the "Prepare Offline" path. The portal processes it asynchronously, and the agent waits, refreshes, and confirms the records show "Processed" status with no errors.
+For high-volume tables — say, 152 B2B invoices going to insurance companies — the agent has its own way of getting the data into the portal in a single shot rather than entering 152 records one by one. The portal processes the batch asynchronously, and the agent waits, refreshes, and confirms everything came through without errors.
 
 For low-volume tables — HSN summaries, documents issued, B2C consolidated — it uses the online entry forms directly, navigating each tile, filling each field, and saving each record.
 
@@ -128,7 +128,7 @@ Here's what's actually in production right now:
 | ARNs issued | 2 (kept private) |
 | WhatsApp messages the CA had to type to approve a filing | 1 (literally one 👍) |
 
-The two filings that have gone through include one with **152 B2B invoices uploaded as a JSON batch** and another with a mixed B2B + B2C return where the agent had to update Table 7, Table 12 on the B2C HSN tab, and recalculate the totals after the CA team sent updated Tally figures mid-flight. The agent handled the data update, regenerated the summary, downloaded the new PDF, and re-shared it to the WhatsApp group for re-approval. None of that required a human touching the browser.
+The two filings that have gone through include one with **152 B2B invoices pushed into the portal in a single batch** and another with a mixed B2B + B2C return where the agent had to update Table 7, Table 12 on the B2C HSN tab, and recalculate the totals after the CA team sent updated Tally figures mid-flight. The agent handled the data update, regenerated the summary, downloaded the new PDF, and re-shared it to the WhatsApp group for re-approval. None of that required a human touching the browser.
 
 ## The Three Things Nobody Tells You About GST Automation
 
@@ -136,7 +136,7 @@ A few hard-won lessons, for the GST automation curious:
 
 **1. The portal lies about its state.** A "saved" record is not always a "processed" record. A "processed" record on the screen is not always reflected in the summary until you click Generate Summary again. A summary that says "Ready to File" can revert to "Not Filed" silently if you edit any underlying record. Your agent has to know the difference between what the portal *says* is happening and what is *actually* happening.
 
-**2. Sessions die. Server work doesn't.** GST portal sessions time out after about 15 minutes of inactivity. But if you've kicked off a JSON upload or a summary generation, *the server keeps working* even after your session is gone. The right move is to log back in 5 minutes later and check status, not to assume your work is lost. This single insight saves a lot of debugging.
+**2. Sessions die. Server work doesn't.** GST portal sessions time out after about 15 minutes of inactivity. But if you've kicked off a bulk upload or a summary generation, *the server keeps working* even after your session is gone. The right move is to log back in 5 minutes later and check status, not to assume your work is lost. This single insight saves a lot of debugging.
 
 **3. HSN codes are a minefield.** The portal's HSN search dropdown is the only valid way to add an HSN — you can't type one manually. And the codes the SOPs and tutorials list are not always the codes the portal accepts. *(For example: "998625" for insurance surveyor services does not exist in the portal's database. The actual code is "997162" — Insurance claims adjustment services.)* If you're building anything in this space, treat the HSN dropdown as the source of truth and not whatever Excel sheet your input data came from.
 
@@ -146,7 +146,7 @@ I've laid out the architecture, the flow, the lessons. But there are three or fo
 
 - **How the captcha gets solved** — mentioned, not detailed
 - **How the agent handles re-authentication mid-flight without losing in-progress state**
-- **How the JSON upload schema for bulk B2B was reverse-engineered** (the official documentation is, charitably, vague)
+- **How the agent gets bulk B2B data into the portal in a single shot** (the official documentation is, charitably, vague)
 - **How the WhatsApp approval gate is wired to the filing trigger**
 
 These are the parts that took the longest to figure out and that, frankly, are what makes the system actually work in production instead of being a toy demo. **I'm not writing those bits up on the internet, and — to be very direct — I'm also not teaching anybody how I did them, paid or otherwise.** Some sauce stays in the kitchen. This one stays with me.
