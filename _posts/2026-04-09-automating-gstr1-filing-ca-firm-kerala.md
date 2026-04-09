@@ -32,7 +32,7 @@ Each of these has to be entered, reviewed, approved, and filed. And the GST port
 
 ## The Portal Problem (A Love Letter, Sort Of)
 
-If you've never used the GST portal, here's what you need to know: it's a series of nested AngularJS forms wrapped in 2017-era CSS, served through a session management layer that politely shows you the door if you alt-tab for too long, and gated by an audio captcha that exists for reasons no one can fully explain.
+If you've never used the GST portal, here's what you need to know: it's a series of nested AngularJS forms wrapped in 2017-era CSS, served through a session management layer that politely shows you the door if you alt-tab for too long, and gated by a captcha that exists for reasons no one can fully explain.
 
 There is no API. There is no webhook. There is no "GSTR-1 SDK." There is only the browser, the mouse, and your dwindling will to live.
 
@@ -80,11 +80,11 @@ A long-running browser session that the agent drives via Playwright. It clicks, 
 
 ### Layer 2 — Login + The Captcha Situation
 
-Logging in is the first wall every automation hits. The portal demands a 6-digit captcha from an audio file — yes, *audio*, presumably for accessibility, very accidentally for automation.
+Logging in is the first wall every automation hits. The portal demands a 6-digit captcha that rotates every time you so much as glance at it sideways. It's the kind of thing that's been stopping bots and frustrating humans in equal measure since 2017.
 
 I cracked it. It works reliably across logins. **I am not going to walk you through how.** Not because it's some moral high ground thing, but because it's one of the two or three specific moves that make this whole project work in production rather than be a toy demo, and some things are worth keeping in the kitchen.
 
-What I *will* tell you: there's no OCR involved, no third-party captcha-solving service, no human in the loop. The agent handles it itself, in a few seconds, every time.
+What I *will* tell you: there's no third-party captcha-solving service involved, and no human in the loop. The agent handles it itself, in a few seconds, every time.
 
 ### Layer 3 — Data Entry
 
