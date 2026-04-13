@@ -29,7 +29,7 @@ You don't need a committee to approve a new tool. You don't need a 6-month imple
 
 And the economics are compelling:
 
-- **No expensive RPA licenses** — tools like Claude Code and Playwright are accessible
+- **No expensive RPA licenses** — modern AI tooling is accessible
 - **No custom software development** — agentic workflows are configured, not coded
 - **Immediate ROI** — automate a 2-hour daily task and you've saved 500+ hours per year
 

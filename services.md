@@ -19,7 +19,7 @@ permalink: /services/
 
 <div class="service-card">
 <h3>Browser & Web Automation</h3>
-<p>Automate repetitive web tasks — form filling, data extraction, report generation, cross-platform workflows — using Playwright and AI-driven browser control.</p>
+<p>Automate repetitive web tasks — form filling, data extraction, report generation, cross-platform workflows — using AI-driven browser control.</p>
 </div>
 
 <div class="service-card">

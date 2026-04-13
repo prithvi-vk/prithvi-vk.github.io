@@ -41,7 +41,7 @@ That's easily 30-45 minutes of manual work, compressed into a conversation.
 
 ## Sending an Email via Gmail — Using a Browser
 
-The most impressive part: I asked Claude Code to send an email summarizing what we'd done together. It opened Gmail via Playwright, composed the email with a proper subject and body, and hit send. All from the command line.
+The most impressive part: I asked Claude Code to send an email summarizing what we'd done together. It opened Gmail in a browser, composed the email with a proper subject and body, and hit send. All from the command line.
 
 ## What This Means for Businesses
 

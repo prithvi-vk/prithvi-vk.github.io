@@ -2,7 +2,7 @@
 layout: post
 title: "I Built an AI Agent That Checks the Income Tax Portal and Sends Notices via WhatsApp — Here's Exactly How"
 date: 2026-03-31
-description: "A step-by-step breakdown of how I automated India's Income Tax e-Filing portal — from login to e-Proceedings to PDF download to WhatsApp delivery — using Claude Code and Playwright. No scripts, no selectors, no maintenance."
+description: "A step-by-step breakdown of how I automated India's Income Tax e-Filing portal — from login to e-Proceedings to PDF download to WhatsApp delivery — using Claude Code. No scripts, no selectors, no maintenance."
 keywords: "income tax portal automation India, CA firm automation, e-filing notice automation, WhatsApp automation for chartered accountants, NFAC notice alert system, AI tax compliance automation, income tax e-proceedings automation"
 ---
 
@@ -60,7 +60,7 @@ The agent opens WhatsApp Web, searches for the recipient, attaches the PDF with 
 | Component | Role |
 |-----------|------|
 | **Claude Code (Opus)** | AI brain — orchestrates the entire workflow from natural language |
-| **Playwright MCP** | Browser automation — handles the portal's Angular UI, spinners, modals, auth flows |
+| **Browser automation layer** | Handles the portal's Angular UI, spinners, modals, auth flows |
 | **WhatsApp Web** | Delivery channel — sends PDF + summary to the right person |
 
 No Selenium. No Puppeteer scripts. No brittle CSS selectors that break when the portal updates. The AI reads each page's accessibility tree and acts on what it *understands*, not what it was hardcoded to find.

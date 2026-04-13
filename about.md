@@ -24,7 +24,7 @@ I build **agentic workflows** — AI systems that don't just assist, but *execut
 My toolkit:
 
 - **Claude Code** for intelligent task execution and code generation
-- **Playwright & browser automation** for web-based workflow automation
+- **Browser automation** for web-based workflow automation
 - **Google Workspace & API integrations** for connecting your existing tools
 - **Custom agentic pipelines** that chain multiple AI capabilities together
 
