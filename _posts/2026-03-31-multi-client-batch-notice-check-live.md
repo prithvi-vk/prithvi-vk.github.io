@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "2–3 Hours of Portal Checking, Done in 15 Minutes — How an AI Agent Monitors 13 Income Tax Accounts Daily"
+title: "2–3 Hours of Portal Checking, Done in 15 Minutes — How an AI Agent Monitors Income Tax Accounts Daily"
 date: 2026-03-31
-description: "I set up a daily AI agent for a CA firm that logs into India's Income Tax e-Filing portal for each of their 13 clients every morning, checks for new notices, downloads PDFs, and sends a summary via WhatsApp and Telegram — before the team even gets to their desks."
+description: "I set up a daily AI agent for a CA firm that logs into India's Income Tax e-Filing portal for every client every morning, checks for new notices, downloads PDFs, and sends a summary via WhatsApp and Telegram — before the team even gets to their desks."
 keywords: "daily income tax portal monitoring, automated CA firm compliance, scheduled AI agent India, income tax notice alert system, e-proceedings daily check automation, chartered accountant automation daily"
 ---
 
-A CA I work with has 13 clients with active proceedings on India's Income Tax e-Filing portal. First Appeals, Penalty Proceedings, Arrear Demands, Hearing Notices — the kind of things where missing a deadline means real consequences.
+A CA I work with has a roster of clients with active proceedings on India's Income Tax e-Filing portal. First Appeals, Penalty Proceedings, Arrear Demands, Hearing Notices — the kind of things where missing a deadline means real consequences.
 
-Before I got involved, someone on the team would spend their morning logging into each client's portal account, navigating to e-Proceedings, checking if anything new had come in, and reporting back. Thirteen logins. Every day. Most days, there's nothing new. But you can't skip a day, because the one time you do is the time a hearing notice drops with a seven-day deadline.
+Before I got involved, someone on the team would spend their morning logging into each client's portal account, navigating to e-Proceedings, checking if anything new had come in, and reporting back. A login for every client on the list. Every day. Most days, there's nothing new. But you can't skip a day, because the one time you do is the time a hearing notice drops with a seven-day deadline.
 
 So I built an AI agent that does the entire thing. Every morning. Automatically.
 
@@ -16,7 +16,7 @@ So I built an AI agent that does the entire thing. Every morning. Automatically.
 
 Every day at 8 AM, a scheduled job kicks off the agent. No one needs to trigger it. No one needs to be awake. Here's what happens:
 
-**The agent reads the client directory** — a table with 13 entries, each with a client name, PAN, and portal credentials.
+**The agent reads the client directory** — a table where each row has a client name, PAN, and portal credentials.
 
 **For each client, it:**
 
@@ -28,7 +28,7 @@ Every day at 8 AM, a scheduled job kicks off the agent. No one needs to trigger 
 6. If nothing new — moves to the next client
 7. If there's a new notice — downloads the PDF, reads it, extracts the key details (what type of notice, which section of the IT Act, what's required, by when), saves it to the client's file, and sends a WhatsApp message to the CA with the PDF attached and a plain-English summary
 
-After all 13 clients are done, the agent sends a Telegram summary — either an all-clear confirmation or a list of new notices that need attention.
+After every client is done, the agent sends a Telegram summary — either an all-clear confirmation or a list of new notices that need attention.
 
 The whole run takes minutes. The CA gets a message on their phone before they've finished their morning coffee. Either "all clear, nothing new across any client" or "Client X has a new hearing notice for AY 2016-17, response due in 7 days — PDF attached."
 
@@ -48,7 +48,7 @@ Each one has a different history on the portal. Some have one proceeding. Some h
 
 On a quiet day (most days), the CA gets a single Telegram message:
 
-> All clear — no new notices found across 13 clients.
+> All clear — no new notices found across any client.
 
 With a per-client breakdown confirming each one was checked.
 
@@ -68,14 +68,14 @@ A CA firm's reputation lives and dies on responsiveness. Miss a hearing date, an
 
 The portal doesn't send reliable email alerts. There's no API. There's no webhook. The only way to know is to check. And now that checking happens automatically, every single morning, with a timestamped record of every run.
 
-**The agent doesn't take leave. It doesn't forget a client. It doesn't get distracted by a phone call halfway through the list.** It checks all 13, compares against history, and reports — same way, every day.
+**The agent doesn't take leave. It doesn't forget a client. It doesn't get distracted by a phone call halfway through the list.** It checks every client, compares against history, and reports — same way, every day.
 
 ## The Numbers
 
 | What | Value |
 |------|-------|
-| Clients monitored daily | 13 |
-| Portal logins per day | 13 |
+| Clients monitored daily | Entire roster |
+| Portal logins per day | One per client |
 | Time to complete full check | Minutes |
 | Manual effort required | Zero |
 | Delivery channels | WhatsApp + Telegram |

@@ -82,7 +82,7 @@ For standard notices:
 
 ## The Business Case
 
-Let's do the math for a mid-size CA firm (150 clients):
+Let's do the math for a mid-size CA firm:
 
 | Manual Process | Time per Client | Daily Total |
 |------|------|------|
@@ -95,7 +95,7 @@ With AI agents:
 
 | Automated Process | Time | Daily Total |
 |------|------|------|
-| Batch portal check (150 clients) | ~2 min each, parallel | 30 min total |
+| Batch portal check (entire client roster) | ~2 min each, parallel | Minutes total |
 | Notice processing + delivery | Automatic | 0 min manual |
 | **Total daily overhead** | | **0 hours manual** |
 

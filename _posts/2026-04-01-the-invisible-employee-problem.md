@@ -8,7 +8,7 @@ keywords: "ai orchestration, agentic ai visualization, ai agent org chart, ai co
 
 Here's a problem nobody talks about in AI consulting: your best work is invisible.
 
-I can build an AI agent that logs into 13 income tax portal accounts every morning, checks for new notices, downloads PDFs, summarizes them, and sends WhatsApp messages to the CA team — all before anyone gets to their desk. I've done it. It works.
+I can build an AI agent that logs into every income tax portal account a firm manages, every morning, checks for new notices, downloads PDFs, summarizes them, and sends WhatsApp messages to the CA team — all before anyone gets to their desk. I've done it. It works.
 
 But when I sit across the table from a client and say "I built you an AI employee," they look at me and ask: *where is it?*
 
@@ -72,9 +72,9 @@ Heartbeat: 24-hour interval, wake on demand
 
 The notification flow during a run:
 1. **Session start** — "IT Notice Check — Starting..."
-2. **Client list loaded** — "Checkpoint: 13 clients to check"
-3. **Per-client progress** — "[3/13] Client Name — No new notices" (or details if a notice was found)
-4. **Blockers** — "[7/13] Client Name — BLOCKED: OTP required"
+2. **Client list loaded** — "Checkpoint: client list ready"
+3. **Per-client progress** — "Client Name — No new notices" (or details if a notice was found)
+4. **Blockers** — "Client Name — BLOCKED: OTP required"
 5. **WhatsApp confirmation** — "CA team has been notified"
 6. **Session summary** — Full results with counts and duration
 
@@ -95,7 +95,7 @@ The atomic task checkout is a nice detail — it's a single database write, so i
 
 ## What This Changes for Client Conversations
 
-Before this, my demo was: "Here's a Telegram message the agent sent. Trust me, it checked all 13 accounts."
+Before this, my demo was: "Here's a Telegram message the agent sent. Trust me, it checked every account."
 
 Now I can pull up a dashboard and show:
 - **The org chart** — here are your AI employees, here's who reports to whom

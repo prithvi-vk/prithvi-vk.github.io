@@ -23,7 +23,7 @@ India's Income Tax e-Filing portal has no API. No webhooks. No notification syst
 5. Figure out what it means and what the deadline is
 6. Message the right person about it
 
-Now multiply that by 50 clients. Every single day.
+Now multiply that by every client on the roster. Every single day.
 
 ## What I Built: The Full Workflow
 
