@@ -138,17 +138,6 @@ A few hard-won lessons, for the GST automation curious:
 
 **3. HSN codes are a minefield.** The portal's HSN search dropdown is the only valid way to add an HSN — you can't type one manually. And the codes the SOPs and tutorials list are not always the codes the portal accepts. *(For example: "998625" for insurance surveyor services does not exist in the portal's database. The actual code is "997162" — Insurance claims adjustment services.)* If you're building anything in this space, treat the HSN dropdown as the source of truth and not whatever Excel sheet your input data came from.
 
-## The Stuff I'm Keeping To Myself
-
-I've laid out the architecture, the flow, the lessons. But there are three or four moves in this system that I'm deliberately not detailing:
-
-- **How the captcha gets solved** — mentioned, not detailed
-- **How the agent handles re-authentication mid-flight without losing in-progress state**
-- **How the agent gets bulk B2B data into the portal in a single shot** (the official documentation is, charitably, vague)
-- **How the WhatsApp approval gate is wired to the filing trigger**
-
-These are the parts that took the longest to figure out and that, frankly, are what makes the system actually work in production instead of being a toy demo. **I'm not writing those bits up on the internet, and — to be very direct — I'm also not teaching anybody how I did them, paid or otherwise.** Some sauce stays in the kitchen. This one stays with me.
-
 ## Why This Matters
 
 The obvious win here is hours saved. A CA firm that spends four to six hours a month per client on GSTR-1 data entry, summary review, and filing logistics gets that time back. Across a roster of clients, that's easily most of a work-week every month — recovered.
