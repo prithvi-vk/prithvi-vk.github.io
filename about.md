@@ -7,7 +7,19 @@ permalink: /about/
 
 ## The Backstory
 
-Until March 26, 2026, I was at a startup that upskilled working professionals in AI — designing structured programs ranging from weeks to months, for coders and non-coders alike. I watched hundreds of professionals go through the journey of understanding what AI could do.
+I was born and brought up across **4 different cities and 8 different schools**. The constant moving meant I learned early how to drop into a new environment, figure out how it works, and get on with it. Since 2021, I've based myself in **Bangalore** — the first time I've stayed put long enough to actually call a place home.
+
+Tech has been the through-line my whole life. My early discovery years were all **Python and Raspberry Pi** — wiring things up, breaking them, fixing them, the whole gloriously frustrating loop. Somewhere along the way, life pulled me in other directions and I lost touch with programming for a long stretch.
+
+Then AI happened.
+
+Coming back to building — this time with AI agents instead of bare-metal Python scripts — has been one of the most rewarding stretches of learning I've ever been on. The leverage is unreal. The pace is unreal. And the gap between what businesses *think* AI can do and what it *actually* can do, today, in production, is enormous.
+
+That gap is what I'm here to close.
+
+## What I Was Doing Before
+
+Until recently, I was at a startup that upskilled working professionals in AI — designing structured programs ranging from weeks to months, for coders and non-coders alike. I watched hundreds of professionals go through the journey of understanding what AI could do.
 
 And that's exactly the problem I kept running into.
 
