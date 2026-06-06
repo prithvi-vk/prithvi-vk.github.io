@@ -63,7 +63,7 @@ Read the comparison carefully. Kronos is benchmarked against **other AI forecast
 
 The library hides the messy parts (normalisation, tokenising, sampling) behind a small predictor you hand history to. I pulled three years of daily Apple bars, fed it the last 400, and asked for the next 30 trading days:
 
-![A two-panel chart. Top panel: AAPL closing price in black climbing to about $310, then a red forecast line bending downward into the $250s. Bottom panel: trading volume history in black with a red forecast continuation.](/assets/img/kronos-aapl-forecast.png)
+![A two-panel chart. Top panel: AAPL closing price in black climbing to about $310, then a red forecast line bending downward into the $250s. Bottom panel: trading volume history in black with a red forecast continuation.](/assets/img/kronos-aapl-chart.png)
 *History in black, Kronos' 30-day forecast in red. One important catch: Kronos is **generative**, so each forecast is a sampled path, not a fixed prediction. Re-run it and the line changes. Treat it as a suggestion of shape, not a price target.*
 
 That single red line is actually the honest weakness and the clever fix in one picture. Because the model samples, one run is just one possible future. The right way to use it is to sample *many* futures and look at the spread, which is exactly what the authors do in production.
@@ -76,7 +76,7 @@ A model on your laptop is a toy you have to babysit. The interesting version run
 
 You can stand up the same idea yourself. To prove how short the distance is from "research paper" to "thing in your pocket," I wrapped the model in a small Telegram bot. You text it a ticker, it texts back a chart:
 
-![A Telegram chat. The user sent "AAPL"; the bot replied with the Kronos forecast chart and a caption reading last close 307.34, forecast 253.21 (-17.61%), projected range 245.72 to 309.14, plus a "not financial advice" disclaimer.](/assets/img/kronos-telegram-forecast.jpg)
+![A Telegram chat. The user sent "AAPL"; the bot replied with the Kronos forecast chart and a caption reading last close 307.34, forecast 253.21 (-17.61%), projected range 245.72 to 309.14, plus a "not financial advice" disclaimer.](/assets/img/kronos-bot-chat.png)
 *An open model, a Yahoo Finance feed, and an afternoon. That is the whole stack.*
 
 The catch with "always on" is worth naming, because people underestimate it. The bot is a program that has to be awake to answer, and the model needs a processor to run on. While it lives on a laptop, the laptop is the server, so the laptop can never sleep. The fix is to stop being the server. The same code dropped onto a cheap always-on cloud box (a five-dollar-a-month Linux machine is plenty) runs day and night without touching your own computer. The code already detects its hardware and falls back from GPU to CPU automatically, so it runs unchanged on a plain server, just a little slower per chart. That is the entire arc of modern tooling in one sentence: an open model, a tiny VM, and an afternoon now buy you something that used to require a seat on a trading floor.
