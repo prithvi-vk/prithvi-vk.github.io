@@ -63,7 +63,7 @@ Read the comparison carefully. Kronos is benchmarked against **other AI forecast
 
 The library hides the messy parts (normalisation, tokenising, sampling) behind a small predictor you hand history to. I pulled three years of daily Apple bars, fed it the last 400, and asked for the next 30 trading days:
 
-![A two-panel chart. Top panel: AAPL closing price in black climbing to about $310, then a red forecast line bending downward into the $250s. Bottom panel: trading volume history in black with a red forecast continuation.](/assets/img/kronos-aapl-forecast.jpg)
+![A two-panel chart. Top panel: AAPL closing price in black climbing to about $310, then a red forecast line bending downward into the $250s. Bottom panel: trading volume history in black with a red forecast continuation.](/assets/img/kronos-aapl-forecast.png)
 *History in black, Kronos' 30-day forecast in red. One important catch: Kronos is **generative**, so each forecast is a sampled path, not a fixed prediction. Re-run it and the line changes. Treat it as a suggestion of shape, not a price target.*
 
 That single red line is actually the honest weakness and the clever fix in one picture. Because the model samples, one run is just one possible future. The right way to use it is to sample *many* futures and look at the spread, which is exactly what the authors do in production.
