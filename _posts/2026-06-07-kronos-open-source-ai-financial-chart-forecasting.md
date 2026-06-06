@@ -61,7 +61,9 @@ Read the comparison carefully. Kronos is benchmarked against **other AI forecast
 
 ## What it looks like to run
 
-The library hides the messy parts (normalisation, tokenising, sampling) behind a small predictor you hand history to. I pulled three years of daily Apple bars, fed it the last 400, and asked for the next 30 trading days:
+Actually using it is refreshingly undramatic. You do not train anything or touch the neural network directly. You hand one object, the predictor, a table of recent price history, and tell it how far ahead to look. Everything fiddly happens out of sight: it scales the raw numbers, turns them into tokens, samples what comes next, and converts the result back into prices and volumes.
+
+So I gave it something familiar. I downloaded three years of Apple's daily candlesticks from Yahoo Finance, handed the model the most recent 400 trading days as context (its working memory of how the stock has been behaving), and asked it to predict the next 30 trading days. A few seconds later, this came back:
 
 ![A two-panel chart. Top panel: AAPL closing price in black climbing to about $310, then a red forecast line bending downward into the $250s. Bottom panel: trading volume history in black with a red forecast continuation.](/assets/img/kronos-aapl-chart.png)
 *History in black, Kronos' 30-day forecast in red. One important catch: Kronos is **generative**, so each forecast is a sampled path, not a fixed prediction. Re-run it and the line changes. Treat it as a suggestion of shape, not a price target.*
