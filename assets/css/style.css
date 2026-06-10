@@ -417,6 +417,53 @@ section.blk { padding: 48px 0; border-bottom: 1px solid var(--border); }
   .brand { font-size: 12px; padding: 0 12px; }
   .toggle { padding: 0 12px; }
 }
+
+/* ---- HERO stacks vertically on small screens (copy → globe → readout) ---- */
+@media (max-width: 768px) {
+  .stage.stage-fixed { display: flex; flex-direction: column; overflow-y: auto; }
+  .edge { display: none; }
+  .hero-copy { position: static; order: 1; max-width: 100%; padding: 26px 18px 4px; }
+  #globe { position: relative; inset: auto; order: 2; width: 100%; height: 44vh; flex: none; }
+  .readout { position: static; order: 3; width: auto; max-width: 100%; margin: 18px 18px 26px; backdrop-filter: none; }
+  .index { display: none; }
+}
+
+/* ---- Phone layout ---- */
+@media (max-width: 600px) {
+  :root { --frame-inset: 8px; --grid-cell: 32px; }
+
+  /* compact header that can never overflow its bar */
+  .topbar { overflow: hidden; }
+  .brand { padding: 0 10px; font-size: 11.5px; gap: 7px; letter-spacing: 0; }
+  .brand .dot { width: 7px; height: 7px; }
+  nav.nav a { padding: 0 8px; font-size: 10px; letter-spacing: .04em; }
+  .toggle { padding: 0 9px; font-size: 10px; gap: 6px; }
+  .toggle #themeLabel { display: none; }
+
+  .wrap { padding: 24px 16px 44px; }
+
+  .hero-copy h1 { font-size: clamp(28px, 8.5vw, 40px); }
+  .cta .btn { flex: 1 1 auto; justify-content: center; }
+
+  /* mastheads: meta block drops below the heading, left-aligned */
+  .masthead { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .mh-right { text-align: left; }
+  .ab-mast { gap: 22px; }
+  .grid2 { gap: 14px; }
+  .cta-band { gap: 16px; }
+
+  /* archive rows: number + body, hide read-time/arrow columns */
+  .row { grid-template-columns: 40px 1fr; gap: 14px; }
+  .row .rt, .row .arrow { display: none; }
+  .row:hover { padding-left: 10px; }
+  .row .num { font-size: 24px; }
+
+  .featured { padding: 14px; gap: 18px; }
+  .featured .cover-img { min-height: 180px; }
+  .byline { flex-wrap: wrap; gap: 12px; }
+  .byline .share { margin-left: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee .track { animation: none; }
   .cur, .eyebrow .pulse, .readout.live .rhead .led, .status .s1::before, .ab-portrait .stat dd.live::before { animation: none !important; }
