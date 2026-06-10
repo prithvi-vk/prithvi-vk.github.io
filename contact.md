@@ -10,14 +10,14 @@ marquee: '<span><b>// OPEN A TRANSMISSION</b><i>// RESPONSE &lt; 24 HRS</i>// WH
   <div class="ct-head">
     <div class="kicker">// CONTACT · OPEN A TRANSMISSION</div>
     <h1>Tell me what's<br>slowing you down.</h1>
-    <p class="lead">A messy process, a half-built automation, a website stuck in 2009, or a "can AI even do this?" question. Book a call and walk me through it. If there's a system worth building, I'll tell you straight. If there isn't, I'll tell you that too.</p>
+    <p class="lead">Book a 30-minute call and walk me through the process that's slowing you down. I'll tell you straight whether AI can fix it, what it would take, and whether I'm the right person to build it. No pitch, no jargon.</p>
   </div>
 
   <div class="ct-grid">
     <div class="ct-main">
       <div class="sidehead">// BOOK THE DISCOVERY CALL</div>
       <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/prithvi-vadakemuri/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/prithvi-vadakemuri/30min?hide_event_type_details=1&hide_gdpr_banner=1"></div>
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       <!-- Calendly inline widget end -->
     </div>

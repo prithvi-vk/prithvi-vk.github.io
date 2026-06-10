@@ -370,7 +370,7 @@ section.blk { padding: 48px 0; border-bottom: 1px solid var(--border); }
 .ct-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0; border: 1px solid var(--border); margin-top: 40px; }
 .ct-main { padding: 30px 32px; border-right: 1px solid var(--border); }
 .ct-side { padding: 30px 28px; background: var(--panel); }
-.ct-main .calendly-inline-widget { min-width: 280px; height: 640px; }
+.ct-main .calendly-inline-widget { width: 100%; min-width: 0; height: 700px; }
 
 .sidehead { font-size: 11px; letter-spacing: .18em; color: var(--fg-dim); margin-bottom: 16px; }
 .status { border: 1px solid var(--red); padding: 14px 16px; margin-bottom: 26px; }
@@ -462,6 +462,10 @@ section.blk { padding: 48px 0; border-bottom: 1px solid var(--border); }
   .featured .cover-img { min-height: 180px; }
   .byline { flex-wrap: wrap; gap: 12px; }
   .byline .share { margin-left: 0; }
+
+  /* contact: tighter panels so the Calendly widget never overflows */
+  .ct-main, .ct-side { padding: 20px 14px; }
+  .ct-main .calendly-inline-widget { height: 760px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
