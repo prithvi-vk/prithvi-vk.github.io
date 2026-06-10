@@ -2,6 +2,10 @@
 layout: post
 title: "How I Taught a Robot to File GST Returns at 2 AM (And Why a Kerala CA Firm Loves Me Now)"
 date: 2026-04-09
+tag: GSTR-1
+category: TAX
+cat_label: "AUTOMATION / TAX"
+hero_excerpt: "An agent that logs into the GST portal at 2 AM, fills every table, generates the summary, ships it to WhatsApp for approval, and files via OTP — no human at the browser."
 description: "An AI agent that logs into the GST portal, enters every table, generates the summary, downloads the PDF, ships it to WhatsApp for CA approval, and then files the return via OTP — all without a human touching the browser. Here's how it went down."
 keywords: "GSTR-1 automation India, GST portal automation, CA firm AI agent Kerala, automated GST return filing, GSTR-1 EVC filing automation, chartered accountant tax automation India, GST portal browser automation"
 ---

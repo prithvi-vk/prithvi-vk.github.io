@@ -2,6 +2,10 @@
 layout: post
 title: "A Detour from Tax Bots: Building a Boutique Storefront in Six Hours"
 date: 2026-04-28
+tag: STOREFRONT
+category: BUILD
+cat_label: "BUILD / SHOPIFY"
+hero_excerpt: "Most days I'm teaching machines to politely refuse GST portal captchas. One quiet Sunday I built a dress shop instead — start to finish."
 description: "Most days I'm building tax-automation agents. Over the weekend I forked Shopify Dawn, custom-coded a boutique storefront, and shipped it live in six hours. Here's what's under the hood — shadow-DOM admin automation, viewport-stable hero crops, and why custom-coded themes age better than page-builder ones."
 keywords: "Shopify Dawn custom theme, Shopify CLI deploy, custom-coded Shopify storefront, Liquid theme development India, Shopify admin shadow DOM automation, image-banner section schema, image_ratio portrait collection page, full-stack web developer India, end-to-end SMB website developer, ethnic wear Shopify boutique"
 ---

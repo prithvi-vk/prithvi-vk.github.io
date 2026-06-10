@@ -2,6 +2,10 @@
 layout: post
 title: "The Invisible Employee Problem — Why I Built a Visual AI Org Chart for a CA Firm"
 date: 2026-04-01
+tag: ORG-CHART
+category: AI
+cat_label: "AI / ORCHESTRATION"
+hero_excerpt: "The hardest part of selling agentic AI isn't building it, it's showing it. So I gave the agents a visible presence: org charts, run histories, live updates."
 description: "As an AI consultant, the hardest part of selling agentic AI isn't building it — it's showing it. I set up an orchestration layer to give AI agents a visible presence: org charts, run histories, and real-time Telegram updates. Here's how."
 keywords: "ai orchestration, agentic ai visualization, ai agent org chart, ai consulting challenges, ai agents for CA firms, autonomous ai workers, ai compliance automation"
 ---

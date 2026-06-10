@@ -1,33 +1,89 @@
 ---
 layout: default
+stage_id: stage
 ---
-<article>
-  <div class="post-header">
+{%- assign sat = 0 -%}
+{%- for p in site.posts -%}{%- if p.url == page.url -%}{%- assign sat = forloop.index -%}{%- endif -%}{%- endfor -%}
+{%- assign nxt = page.previous -%}
+{%- unless nxt -%}{%- assign nxt = page.next -%}{%- endunless -%}
+
+<div class="progress"><div class="fill" id="fill"></div></div>
+<div class="wrap">
+  <article class="article">
+    <a class="back" href="{{ '/blog/' | relative_url }}">[ ← ALL TRANSMISSIONS ]</a>
+
+    <div class="post-meta">
+      <span class="sat">SAT-{{ sat | prepend: '0' | slice: -2, 2 }}</span>
+      <span class="pill">{{ page.cat_label | default: page.category | default: "FIELD NOTE" }}</span>
+      <span>{{ page.date | date: "%Y.%m.%d" }}</span>
+      <span>· {{ content | number_of_words | divided_by: 200 | plus: 1 }} MIN READ</span>
+      <span>· 12.97°N 77.59°E</span>
+    </div>
+
     <h1>{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }} · {{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</p>
-  </div>
-  <div class="post-content">
-    {{ content }}
-  </div>
-  <div class="post-footer">
+    {% if page.description or page.hero_excerpt %}<p class="deck">{{ page.description | default: page.hero_excerpt }}</p>{% endif %}
+
+    {% if page.cover %}
+    <div class="cover">
+      <img class="cover-img" src="{{ page.cover | relative_url }}" alt="{{ page.title | escape }}">
+      <div class="cap">{{ page.cover_caption | default: "FIG.01 · COVER" }}</div>
+    </div>
+    {% endif %}
+
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    <div class="byline">
+      <div class="who"><b>PRITHVI VK</b><div>AI-ENABLED OPERATOR · BANGALORE</div></div>
+      <div class="share">
+        <a href="{{ site.author.linkedin }}">LINKEDIN</a>
+        <a href="{{ site.author.whatsapp }}">WHATSAPP</a>
+      </div>
+    </div>
+
     <div class="post-cta">
-      <h3>Want a system like this for your firm?</h3>
-      <p>I build AI automation systems for CA firms and SMBs. If portal monitoring, notice management, or compliance workflows are eating your team's time — let's fix that.</p>
-      <a href="/contact" class="btn">Book a free discovery call</a>
+      <h3>Got work a robot should be doing?</h3>
+      <p>I build agentic systems, tax-automation bots and websites for founders, operators and CA firms. If a workflow is eating your team's week, let's fix it.</p>
+      <a href="{{ '/contact/' | relative_url }}" class="btn primary">[ WORK WITH ME → ]</a>
     </div>
-    <div class="post-nav">
-      {% if page.previous.url %}
-      <a href="{{ page.previous.url | relative_url }}" class="post-nav-link post-nav-prev">
-        <span class="post-nav-label">Previous</span>
-        <span class="post-nav-title">{{ page.previous.title }}</span>
+
+    {% if nxt %}
+    <div class="next">
+      <a class="next-card" href="{{ nxt.url | relative_url }}">
+        <div class="nlab">NEXT TRANSMISSION →</div>
+        <div class="ntitle">{{ nxt.title }}</div>
+        <div class="nmeta">{{ nxt.cat_label | default: nxt.category }} · {{ nxt.date | date: "%Y.%m.%d" }}</div>
       </a>
-      {% endif %}
-      {% if page.next.url %}
-      <a href="{{ page.next.url | relative_url }}" class="post-nav-link post-nav-next">
-        <span class="post-nav-label">Next</span>
-        <span class="post-nav-title">{{ page.next.title }}</span>
-      </a>
-      {% endif %}
     </div>
-  </div>
-</article>
+    {% endif %}
+  </article>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  function init() {
+    var stage = document.querySelector(".stage"), fill = document.getElementById("fill");
+    if (stage && fill) {
+      var upd = function () {
+        var max = stage.scrollHeight - stage.clientHeight;
+        fill.style.width = (max > 0 ? (stage.scrollTop / max) * 100 : 0) + "%";
+      };
+      stage.addEventListener("scroll", upd, { passive: true });
+      upd();
+    }
+    var track = document.getElementById("track");
+    if (track) {
+      var t = {{ page.title | upcase | jsonify }};
+      var c = {{ page.cat_label | default: page.category | default: "FIELD NOTE" | jsonify }};
+      var d = {{ page.date | date: "%Y.%m.%d" | jsonify }};
+      var rt = "{{ content | number_of_words | divided_by: 200 | plus: 1 }} MIN";
+      var html = "<span><b>// READING · SAT-{{ sat | prepend: '0' | slice: -2, 2 }}</b><i>// " + c + "</i>// " + t + "// " + d + " · " + rt + " <b>// BANGALORE 12.97°N 77.59°E</b></span>";
+      track.innerHTML = html + html;
+    }
+  }
+  if (document.readyState !== "loading") init();
+  else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>

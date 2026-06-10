@@ -1,26 +1,47 @@
 ---
-layout: page
+layout: default
 title: Contact
-subtitle: Stop doing what a machine should do for you.
 permalink: /contact/
+description: "Book a discovery call with Prithvi VK to design and build agentic systems for your team. Open a transmission or reach out directly."
+marquee: '<span><b>// OPEN A TRANSMISSION</b><i>// RESPONSE &lt; 24 HRS</i>// WHATSAPP +91 892 137 9317 // BANGALORE 12.97°N 77.59°E <b>// AVAILABLE FOR NEW WORK</b></span>'
 ---
 
-<div class="contact-hero">
-  <h2>The AI Discovery Call</h2>
-  <p class="contact-tagline">45 minutes. Zero fluff. One actionable automation roadmap.</p>
-  <p class="contact-desc">You'll walk me through the workflows eating your team's time. I'll show you exactly which ones AI can take off your plate — this week, not next quarter. You leave with a prioritized plan you can act on immediately, whether we work together or not.</p>
-</div>
+<div class="wrap">
+  <div class="ct-head">
+    <div class="kicker">// CONTACT · OPEN A TRANSMISSION</div>
+    <h1>Tell me what's<br>slowing you down.</h1>
+    <p class="lead">A messy process, a half-built automation, a website stuck in 2009, or a "can AI even do this?" question. Book a call and walk me through it. If there's a system worth building, I'll tell you straight. If there isn't, I'll tell you that too.</p>
+  </div>
 
-<!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/prithvi-vadakemuri/30min" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
+  <div class="ct-grid">
+    <div class="ct-main">
+      <div class="sidehead">// BOOK THE DISCOVERY CALL</div>
+      <!-- Calendly inline widget begin -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/prithvi-vadakemuri/30min?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly inline widget end -->
+    </div>
 
-<div class="contact-alt">
-  <h2>Prefer a quick message?</h2>
-  <p>Reach out at <a href="mailto:vk@prithvi.world">vk@prithvi.world</a> — I reply within 24 hours.</p>
-  <ul class="contact-links">
-    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/prithvijay/">linkedin.com/in/prithvijay</a></li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/prithvi-vk">github.com/prithvi-vk</a></li>
-  </ul>
+    <aside class="ct-side">
+      <div class="sidehead">// SIGNAL STATUS</div>
+      <div class="status">
+        <div class="s1">AVAILABLE · TAKING NEW WORK</div>
+        <div class="s2">Booking new engagements this quarter.</div>
+      </div>
+
+      <div class="sidehead">// DIRECT CHANNELS</div>
+      <ul class="channels">
+        <li><a href="{{ site.author.whatsapp }}">WHATSAPP<span class="arr">→</span></a></li>
+        <li><a href="{{ site.author.linkedin }}">LINKEDIN<span class="arr">→</span></a></li>
+      </ul>
+
+      <div class="sidehead">// COORDINATES</div>
+      <dl class="facts">
+        <dt>BASE</dt><dd>BANGALORE, IN</dd>
+        <dt>LAT/LON</dt><dd>12.97°N 77.59°E</dd>
+        <dt>RESPONSE</dt><dd>&lt; 24 HRS</dd>
+        <dt>TIMEZONE</dt><dd>IST · GMT+5:30</dd>
+      </dl>
+    </aside>
+  </div>
 </div>

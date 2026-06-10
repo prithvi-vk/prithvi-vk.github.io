@@ -2,6 +2,11 @@
 layout: post
 title: "The Return That Moves Real Money: Automating GSTR-3B End-to-End"
 date: 2026-04-21
+tag: GSTR-3B
+category: AUTOMATION
+cat_label: "AUTOMATION / TAX"
+featured: true
+hero_excerpt: "If GSTR-1 is the loud, frantic front-of-house, then GSTR-3B is the quiet one, the return that actually moves real money."
 description: "GSTR-1 is a declaration. GSTR-3B is a payment. Here's how I built an AI agent that handles the whole GSTR-2B → GSTR-3B → challan → EVC filing flow end-to-end for a CA firm, and what it took to push real money through India's GST portal without a human touching the browser."
 keywords: "GSTR-3B automation India, GSTR-2B IMS reconciliation, GST portal automation CA firm, automated GST filing EVC, reverse charge mechanism RCM rent, challan generation GST portal, CA firm AI agent India, chartered accountant compliance automation"
 ---

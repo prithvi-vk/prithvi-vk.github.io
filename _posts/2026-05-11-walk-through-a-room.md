@@ -2,6 +2,10 @@
 layout: post
 title: "Turning a Room Into a Website You Can Walk Through"
 date: 2026-05-11
+tag: WALKABLE
+category: BUILD
+cat_label: "BUILD / 3D"
+hero_excerpt: "Saw a reel one morning. Tried the thing it showed before lunch. It's evening and I'm writing this. That's the whole backstory."
 description: "Saw a reel one morning, tried it before lunch, posting by evening: your phone can turn a room into something you walk around inside on a webpage — it's called Gaussian splatting. Here's what it is, what a good one looks like, and how anyone can make one in about ten minutes."
 keywords: "Gaussian splatting, 3D room scan, scan a room with phone, Scaniverse, Luma AI, SuperSplat, photogrammetry, interactive 3D walkthrough, 3D virtual tour real estate, Gaussian splat tutorial India"
 ---

@@ -1,0 +1,381 @@
+---
+layout: default
+title: Home
+permalink: /
+stage_class: stage-fixed
+description: "Prithvi VK. A non-technical product enthusiast building agentic systems for founders, operators and disruptors. Ideas, findings, client-system stories and the breakdowns behind every build."
+---
+
+<canvas id="globe"></canvas>
+
+<div class="edge edge-left">// ORBITAL INDEX · {{ site.posts | size }} TRANSMISSIONS LIVE</div>
+<div class="edge edge-right">// PRITHVI.WORLD · EST.2026 · 12.97°N 77.59°E</div>
+
+<div class="hero-copy">
+  <span class="eyebrow"><span class="pulse"></span>PRITHVI VK · AGENTIC SYSTEMS</span>
+  <h1>Agentic systems for founders, operators &amp; <span class="hl">disruptors</span>.</h1>
+  <p class="sub">A non-technical product enthusiast obsessed with agentic AI. This is my notebook: ideas, findings, real client-system stories, and the breakdowns behind every build I ship.</p>
+  <div class="cta">
+    <a class="btn primary" href="{{ '/blog/' | relative_url }}">[ READ THE BLOG → ]</a>
+    <a class="btn" href="{{ '/contact/' | relative_url }}">[ WORK WITH ME ]</a>
+  </div>
+</div>
+
+{% assign total_posts = site.posts | size %}{% if total_posts > 6 %}{% assign shown_posts = 6 %}{% else %}{% assign shown_posts = total_posts %}{% endif %}
+<aside class="index" id="index">
+  <div class="ihead"><span>TRANSMISSION_INDEX</span><b>{{ shown_posts | prepend: '0' | slice: -2, 2 }} / {{ total_posts | prepend: '0' | slice: -2, 2 }}</b></div>
+  <!-- rows injected -->
+</aside>
+
+<section class="readout" id="readout">
+  <div class="rhead">
+    <span class="stat"><span class="led"></span><span class="lab">SIGNAL · STANDBY</span></span>
+    <span id="rclock">T+ 0000.00.00 / 00:00:00</span>
+  </div>
+  <div class="rbody" id="rbody">
+    <p class="placeholder">// HOVER A SATELLITE, OR AN INDEX ROW, TO DECODE ITS TRANSMISSION<span class="cur">_</span></p>
+  </div>
+</section>
+
+<script>
+function pvkHero() {
+  "use strict";
+
+  /* ---------------- DATA (latest 6 posts, from Jekyll) ---------------- */
+  var POSTS = [
+  {% for post in site.posts limit:6 %}
+    {
+      tag: {{ post.tag | default: post.title | jsonify }},
+      cat: {{ post.cat_label | default: post.category | default: "FIELD NOTE" | jsonify }},
+      date: {{ post.date | date: "%Y.%m.%d" | jsonify }},
+      title: {{ post.title | jsonify }},
+      excerpt: {{ post.hero_excerpt | default: post.description | default: post.excerpt | strip_html | jsonify }},
+      url: {{ post.url | relative_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ];
+  POSTS.forEach(function (p, i) { p.id = String(i + 1).padStart(2, "0"); });
+
+  /* orbital parameters per satellite (radius multiple of globe R, inclination, node, phase, angular speed) */
+  var ORBITS = [
+    { rm:1.34, incl: 0.34, node: 0.40, phase:0.0, spd: 0.55 },
+    { rm:1.58, incl:-0.62, node: 1.95, phase:1.1, spd:-0.42 },
+    { rm:1.80, incl: 0.92, node: 3.10, phase:2.4, spd: 0.34 },
+    { rm:1.50, incl: 1.28, node: 0.85, phase:4.0, spd: 0.48 },
+    { rm:2.02, incl:-0.30, node: 2.55, phase:5.2, spd:-0.30 },
+    { rm:1.70, incl: 0.55, node: 4.40, phase:0.7, spd: 0.40 }
+  ].slice(0, POSTS.length);
+
+  /* ---------------- THEME (toggle owned by pvk.js) ---------------- */
+  var root = document.documentElement;
+  var C = {};
+  function cv(n) { return getComputedStyle(root).getPropertyValue(n).trim(); }
+  function readColors() {
+    C = {
+      bg: cv("--bg"), fg: cv("--fg"),
+      line: cv("--line"), lineBack: cv("--line-back"),
+      accent: cv("--accent"), red: cv("--red"),
+      isDark: root.getAttribute("data-theme") === "dark"
+    };
+  }
+  readColors();
+  document.addEventListener("pvk:themechange", readColors);
+
+  /* ---------------- INDEX ROWS ---------------- */
+  var indexEl = document.getElementById("index");
+  POSTS.forEach(function (p, i) {
+    var row = document.createElement("a");
+    row.className = "irow";
+    row.href = p.url;
+    row.dataset.i = i;
+    row.innerHTML =
+      '<span class="num">' + p.id + '</span>' +
+      '<span class="tag">' + p.tag + '</span>' +
+      '<span class="dt">' + p.date.slice(5) + '</span>';
+    row.addEventListener("mouseenter", function () { setHover(i, true); });
+    row.addEventListener("mouseleave", function () { setHover(null, true); });
+    indexEl.appendChild(row);
+  });
+  var rows = Array.prototype.slice.call(indexEl.querySelectorAll(".irow"));
+
+  /* ---------------- MARQUEE ---------------- */
+  var track = document.getElementById("track");
+  (function () {
+    var html = "<span>";
+    html += "<b>// SYSTEM ONLINE</b>";
+    html += "<i>// " + String(POSTS.length).padStart(2, "0") + " TRANSMISSIONS IN ORBIT</i>";
+    POSTS.forEach(function (p) { html += "// " + p.date + " · " + p.title.toUpperCase(); });
+    html += "<b>// BANGALORE 12.97°N 77.59°E</b>";
+    html += "</span>";
+    track.innerHTML = html + html;
+  })();
+
+  /* ---------------- READOUT ---------------- */
+  var readout = document.getElementById("readout");
+  var rbody = document.getElementById("rbody");
+  function renderReadout(i) {
+    if (i == null) {
+      readout.classList.remove("live");
+      rbody.innerHTML = '<p class="placeholder">// HOVER A SATELLITE, OR AN INDEX ROW, TO DECODE ITS TRANSMISSION<span class="cur">_</span></p>';
+      return;
+    }
+    var p = POSTS[i];
+    readout.classList.add("live");
+    rbody.innerHTML =
+      '<div class="rmeta"><span>SAT-' + p.id + '</span><span><b>' + p.cat + '</b></span><span>' + p.date + '</span></div>' +
+      '<div class="rtitle">' + p.title + '</div>' +
+      '<div class="rexc">' + p.excerpt + '</div>' +
+      '<a class="rlink" href="' + p.url + '">[ OPEN TRANSMISSION → ]</a>';
+  }
+
+  /* live clock */
+  var rclock = document.getElementById("rclock");
+  function tick() {
+    var d = new Date();
+    var pad = function (n) { return String(n).padStart(2, "0"); };
+    rclock.textContent = "T+ " + d.getFullYear() + "." + pad(d.getMonth() + 1) + "." + pad(d.getDate()) +
+      " / " + pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* ---------------- CANVAS GLOBE ---------------- */
+  var canvas = document.getElementById("globe");
+  var ctx = canvas.getContext("2d");
+  var W = 0, H = 0, cx = 0, cy = 0, R = 0, dpr = 1;
+
+  function resize() {
+    var r = canvas.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cx = W / 2; cy = H / 2;
+    R = Math.min(W, H) * 0.215;
+    makeStars();
+  }
+
+  /* stars */
+  var stars = [];
+  function makeStars() {
+    var n = Math.round((W * H) / 6500);
+    stars = [];
+    for (var i = 0; i < n; i++) {
+      stars.push({
+        x: Math.random() * W, y: Math.random() * H,
+        r: Math.random() * 1.3 + 0.2,
+        tw: Math.random() * Math.PI * 2,
+        sp: Math.random() * 1.6 + 0.4,
+        drift: (Math.random() - 0.5) * 0.04
+      });
+    }
+  }
+
+  /* rotation helpers */
+  var TILT = -0.34; // view from slightly above
+  function rotY(p, a) { var c = Math.cos(a), s = Math.sin(a); return { x: p.x * c + p.z * s, y: p.y, z: -p.x * s + p.z * c }; }
+  function rotX(p, a) { var c = Math.cos(a), s = Math.sin(a); return { x: p.x, y: p.y * c - p.z * s, z: p.y * s + p.z * c }; }
+  function project(p) { return { sx: cx + p.x, sy: cy - p.y, z: p.z }; }
+
+  function sphereLat(lat, yaw) {
+    var pts = [], phi = lat * Math.PI / 180, cphi = Math.cos(phi), sphi = Math.sin(phi);
+    for (var lon = 0; lon <= 360; lon += 7.5) {
+      var l = lon * Math.PI / 180;
+      var p = { x: R * cphi * Math.cos(l), y: R * sphi, z: R * cphi * Math.sin(l) };
+      p = rotX(rotY(p, yaw), TILT);
+      pts.push(project(p));
+    }
+    return pts;
+  }
+  function sphereLon(lon, yaw) {
+    var pts = [], l = lon * Math.PI / 180, cl = Math.cos(l), sl = Math.sin(l);
+    for (var lat = -90; lat <= 90; lat += 5) {
+      var phi = lat * Math.PI / 180;
+      var p = { x: R * Math.cos(phi) * cl, y: R * Math.sin(phi), z: R * Math.cos(phi) * sl };
+      p = rotX(rotY(p, yaw), TILT);
+      pts.push(project(p));
+    }
+    return pts;
+  }
+  function drawPolyline(pts, frontColor, backColor, wFront, wBack) {
+    for (var i = 1; i < pts.length; i++) {
+      var a = pts[i - 1], b = pts[i];
+      var front = (a.z + b.z) / 2 >= 0;
+      ctx.beginPath();
+      ctx.moveTo(a.sx, a.sy);
+      ctx.lineTo(b.sx, b.sy);
+      ctx.strokeStyle = front ? frontColor : backColor;
+      ctx.lineWidth = front ? wFront : wBack;
+      ctx.stroke();
+    }
+  }
+
+  function satPos(o, t) {
+    var a = o.phase + t * o.spd, r = R * o.rm;
+    var p = { x: r * Math.cos(a), y: 0, z: r * Math.sin(a) };
+    p = rotX(p, o.incl); p = rotY(p, o.node); p = rotX(p, TILT);
+    return project(p);
+  }
+  function orbitRing(o) {
+    var pts = [], r = R * o.rm;
+    for (var a = 0; a <= 360; a += 6) {
+      var ang = a * Math.PI / 180;
+      var p = { x: r * Math.cos(ang), y: 0, z: r * Math.sin(ang) };
+      p = rotX(p, o.incl); p = rotY(p, o.node); p = rotX(p, TILT);
+      pts.push(project(p));
+    }
+    return pts;
+  }
+
+  /* hover state */
+  var hovered = null, hoverLock = false;
+  var satScreen = new Array(POSTS.length);
+
+  function setHover(i, fromLegend) {
+    if (fromLegend) { hoverLock = (i != null); }
+    hovered = i;
+    document.body.classList.toggle("pvk-target", i != null);
+    renderReadout(i);
+    rows.forEach(function (r, k) { r.classList.toggle("hot", k === i); });
+    canvas.style.cursor = (i != null) ? "pointer" : "default";
+  }
+
+  canvas.addEventListener("mousemove", function (e) {
+    if (hoverLock) return;
+    var r = canvas.getBoundingClientRect();
+    var mx = e.clientX - r.left, my = e.clientY - r.top;
+    var best = null, bd = 26 * 26;
+    for (var i = 0; i < satScreen.length; i++) {
+      var s = satScreen[i];
+      if (!s) continue;
+      var dx = s.sx - mx, dy = s.sy - my, d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = i; }
+    }
+    if (best !== hovered) setHover(best, false);
+  });
+  canvas.addEventListener("mouseleave", function () { if (!hoverLock) setHover(null, false); });
+  canvas.addEventListener("click", function () { if (hovered != null) window.location.href = POSTS[hovered].url; });
+
+  function withAlpha(base, a) {
+    var h = base.replace("#", "");
+    if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    var r = parseInt(h.substring(0, 2), 16), g = parseInt(h.substring(2, 4), 16), b = parseInt(h.substring(4, 6), 16);
+    return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+  }
+
+  /* ---------------- RENDER LOOP ---------------- */
+  var t0 = performance.now();
+  function frame(now) {
+    var t = (now - t0) / 1000;
+    ctx.clearRect(0, 0, W, H);
+
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i];
+      s.x += s.drift; if (s.x > W) s.x = 0; if (s.x < 0) s.x = W;
+      var tw = 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(t * s.sp + s.tw));
+      ctx.globalAlpha = tw * (C.isDark ? 0.9 : 0.5);
+      ctx.fillStyle = C.line;
+      ctx.fillRect(s.x, s.y, s.r, s.r);
+    }
+    ctx.globalAlpha = 1;
+
+    var yaw = t * 0.13;
+
+    for (var i = 0; i < ORBITS.length; i++) {
+      var ring = orbitRing(ORBITS[i]);
+      var hot = (i === hovered);
+      ctx.beginPath();
+      for (var k = 0; k < ring.length; k++) {
+        var pt = ring[k];
+        if (k === 0) ctx.moveTo(pt.sx, pt.sy); else ctx.lineTo(pt.sx, pt.sy);
+      }
+      ctx.strokeStyle = hot ? withAlpha(C.red, 0.5) : C.lineBack;
+      ctx.lineWidth = hot ? 1.1 : 0.7;
+      ctx.stroke();
+    }
+
+    for (var lat = -75; lat <= 75; lat += 15) {
+      var major = (lat === 0);
+      drawPolyline(
+        sphereLat(lat, yaw),
+        major ? withAlpha(C.accent, 0.85) : C.line,
+        major ? withAlpha(C.accent, 0.22) : C.lineBack,
+        major ? 1.3 : 0.85,
+        major ? 0.8 : 0.6
+      );
+    }
+    for (var lon = 0; lon < 360; lon += 30) {
+      var major2 = (lon === 0 || lon === 90);
+      drawPolyline(sphereLon(lon, yaw), C.line, C.lineBack, major2 ? 1.05 : 0.85, 0.6);
+    }
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.strokeStyle = withAlpha(C.isDark ? "#F2F1EA" : "#0A0A0A", 0.10);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    for (var i = 0; i < ORBITS.length; i++) {
+      var sp = satPos(ORBITS[i], t);
+      satScreen[i] = sp;
+      var behind = sp.z < 0;
+      var hot2 = (i === hovered);
+      var depth = (sp.z / (R * 2));
+      var size = 6 + depth * 2.2;
+      var col = hot2 ? C.red : C.accent;
+      var a = behind ? 0.4 : 1;
+
+      ctx.globalAlpha = a * (hot2 ? 0.6 : 0.18);
+      ctx.beginPath();
+      ctx.moveTo(sp.sx, sp.sy);
+      ctx.lineTo(cx + (sp.sx - cx) * 0.62, cy + (sp.sy - cy) * 0.62);
+      ctx.strokeStyle = hot2 ? C.red : C.line;
+      ctx.lineWidth = hot2 ? 1.1 : 0.6;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      var half = Math.max(2.5, size / 2);
+      ctx.globalAlpha = a;
+      ctx.fillStyle = col;
+      ctx.fillRect(sp.sx - half, sp.sy - half, half * 2, half * 2);
+      ctx.fillStyle = C.bg;
+      ctx.fillRect(sp.sx - half * 0.34, sp.sy - half * 0.34, half * 0.68, half * 0.68);
+      ctx.globalAlpha = 1;
+
+      if (hot2) {
+        var g = half + 7;
+        ctx.strokeStyle = C.red; ctx.lineWidth = 1.1;
+        ctx.strokeRect(sp.sx - g, sp.sy - g, g * 2, g * 2);
+        ctx.beginPath();
+        ctx.moveTo(sp.sx, sp.sy - g - 6); ctx.lineTo(sp.sx, sp.sy - g);
+        ctx.moveTo(sp.sx, sp.sy + g); ctx.lineTo(sp.sx, sp.sy + g + 6);
+        ctx.moveTo(sp.sx - g - 6, sp.sy); ctx.lineTo(sp.sx - g, sp.sy);
+        ctx.moveTo(sp.sx + g, sp.sy); ctx.lineTo(sp.sx + g + 6, sp.sy);
+        ctx.stroke();
+        ctx.font = "700 10px 'JetBrains Mono', monospace";
+        ctx.textBaseline = "bottom";
+        var lbl = "SAT-" + POSTS[i].id + " · " + POSTS[i].tag;
+        var tw2 = ctx.measureText(lbl).width;
+        var lx = sp.sx + g + 8, ly = sp.sy - g + 2;
+        if (lx + tw2 > W - 8) lx = sp.sx - g - 8 - tw2;
+        ctx.fillStyle = C.bg; ctx.globalAlpha = 0.85;
+        ctx.fillRect(lx - 3, ly - 12, tw2 + 6, 14);
+        ctx.globalAlpha = 1; ctx.fillStyle = C.red;
+        ctx.fillText(lbl, lx, ly + 1);
+      } else {
+        ctx.font = "500 8px 'JetBrains Mono', monospace";
+        ctx.fillStyle = withAlpha(C.isDark ? "#F2F1EA" : "#0A0A0A", behind ? 0.25 : 0.55);
+        ctx.textBaseline = "middle";
+        ctx.fillText(POSTS[i].id, sp.sx + half + 3, sp.sy);
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener("resize", resize);
+  resize();
+  requestAnimationFrame(frame);
+}
+if (document.readyState !== "loading") pvkHero();
+else document.addEventListener("DOMContentLoaded", pvkHero);
+</script>

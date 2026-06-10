@@ -2,6 +2,10 @@
 layout: post
 title: "Meet Kronos: Open-Source AI for Financial Chart Forecasting"
 date: 2026-06-07
+tag: KRONOS
+category: AI
+cat_label: "AI / FORECASTING"
+hero_excerpt: "Every industry with a billion-dollar moat eventually meets the person willing to give the moat away for free. Now market forecasting meets its GIMP."
 description: "Seven researchers at Tsinghua University trained a foundation model on 12 billion candlesticks from 45 exchanges, open sourced it under MIT, and watched it pass 28,000 GitHub stars. It is called Kronos. Here is what it actually is, what it actually claims (the viral version gets this wrong), and what it looks like to run one yourself, all day, every day."
 keywords: "Kronos, financial foundation model, K-line forecasting, candlestick prediction, Tsinghua University, time series foundation model, open source quant, AAAI 2026, BTC USDT forecast, yfinance, shiyu-coder, generative finance model, volatility forecasting"
 ---

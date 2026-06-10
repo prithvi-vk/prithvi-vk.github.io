@@ -1,59 +1,64 @@
 ---
-layout: page
+layout: default
 title: About
-subtitle: From teaching AI to deploying it. The leap was inevitable.
 permalink: /about/
+description: "Prithvi VK. An AI-enabled operator from Kerala, based in Bangalore. Two years across B2B sales, customer success and process improvement, now building production AI systems for small and medium businesses. How I work, what I believe, and what I'm building now."
+marquee: '<span><b>// PRITHVI VK</b><i>// AI-ENABLED OPERATOR</i>// WEBSITES · AGENTIC SYSTEMS FOR SMBS · TAX AUTOMATION FOR CA FIRMS <b>// KERALA → BANGALORE</b></span>'
 ---
 
-## The Backstory
+<div class="wrap">
+  <div class="ab-mast">
+    <div>
+      <div class="kicker">// ABOUT · OPERATOR PROFILE</div>
+      <h1>I build the<br>systems, not<br>the hype.</h1>
+      <p class="lead">Hi, my name's Prithvi. I'm an AI-enabled operator with around two years across B2B sales, customer success and process improvement, now building and shipping production automation for small and medium businesses. Websites, agentic systems, and tax-automation bots that delete hours of manual work for CA firms across India. No jargon, no theatre, just things that ship and keep running after I leave.</p>
+    </div>
+    <div class="ab-portrait">
+      <dl class="stat" style="border-top:none">
+        <dt>BASE</dt><dd>BANGALORE, IN</dd>
+        <dt>FROM</dt><dd>KERALA</dd>
+        <dt>FOCUS</dt><dd>AGENTIC SYSTEMS</dd>
+        <dt>STATUS</dt><dd class="live">TAKING WORK</dd>
+      </dl>
+    </div>
+  </div>
 
-I was born and brought up across **4 different cities and 8 different schools**. The constant moving meant I learned early how to drop into a new environment, figure out how it works, and get on with it. Since 2021, I've based myself in **Bangalore** — the first time I've stayed put long enough to actually call a place home.
+  <section class="blk">
+    <div class="grid2">
+      <div class="seclabel">// THE BACKSTORY</div>
+      <div class="backstory">
+        <p>I didn't get here through a computer-science degree, I studied marketing. The two years since have been a tour through the rooms where business actually happens: content and my first <b>n8n</b> automation as a marketing intern, <b>B2B sales</b> in Bangalore's commercial real estate market, then <b>customer success</b> for large GenAI learning cohorts. Different rooms, same lesson, which is how to read what people actually need versus what they say they need.</p>
+        <p>That turns out to be an unfair advantage for building AI systems. The hard part was never the code; it's knowing which problem is worth solving and what "done" really looks like for the person stuck doing the work. From <b>Kerala</b> originally, in <b>Bangalore</b> the last six years, I now pour that instinct into the work itself, building and iterating on production automation for small and medium businesses, and sharpening the craft under the mentorship of <a href="https://in.linkedin.com/in/sijokuruvilla">Sijo Kuruvilla</a>.</p>
+      </div>
+    </div>
+  </section>
 
-Tech has been the through-line my whole life. My early discovery years were all **Python and Raspberry Pi** — wiring things up, breaking them, fixing them, the whole gloriously frustrating loop. Somewhere along the way, life pulled me in other directions and I lost touch with programming for a long stretch.
+  <section class="blk">
+    <div class="grid2">
+      <div class="seclabel">// HOW I WORK</div>
+      <div class="steps">
+        <div class="step"><div class="n">01</div><div><h3>Listen for the friction</h3><p>I start where it hurts: the recurring task, the copy-paste ritual, the thing your team dreads on Monday. The best systems begin as a complaint, not a spec.</p></div></div>
+        <div class="step"><div class="n">02</div><div><h3>Map the whole flow</h3><p>Before automating anything, I map every step, handoff and edge case end to end. Most "AI problems" turn out to be process problems wearing a costume.</p></div></div>
+        <div class="step"><div class="n">03</div><div><h3>Build the smallest thing that works</h3><p>I ship a working slice fast, put it in front of real data, and let reality argue with my assumptions. Then I expand what survives.</p></div></div>
+        <div class="step"><div class="n">04</div><div><h3>Hand it over clean</h3><p>The goal is a system you understand and trust: documented, observable, and yours. I'd rather be unnecessary than indispensable.</p></div></div>
+      </div>
+    </div>
+  </section>
 
-Then AI happened.
+  <section class="blk">
+    <div class="grid2">
+      <div class="seclabel">// WHAT I BELIEVE</div>
+      <ul class="principles">
+        <li><b>Boring reliability</b> beats clever fragility. <span>Every time.</span></li>
+        <li>You don't need to be technical to <b>build leverage</b>. You need to be relentless about the problem.</li>
+        <li>The best automation is <b>invisible.</b> <span>If you're admiring it, it's probably in your way.</span></li>
+        <li>Share the work. <b>Ideas compound</b> when you write them down in public.</li>
+      </ul>
+    </div>
+  </section>
 
-Coming back to building — this time with AI agents instead of bare-metal Python scripts — has been one of the most rewarding stretches of learning I've ever been on. The leverage is unreal. The pace is unreal. And the gap between what businesses *think* AI can do and what it *actually* can do, today, in production, is enormous.
-
-That gap is what I'm here to close.
-
-## What I Was Doing Before
-
-Until recently, I was at a startup that upskilled working professionals in AI — designing structured programs ranging from weeks to months, for coders and non-coders alike. I watched hundreds of professionals go through the journey of understanding what AI could do.
-
-And that's exactly the problem I kept running into.
-
-Everyone was *learning* AI. Almost nobody was *deploying* it. Companies would send their teams through courses, tick the "AI readiness" box, and go right back to running their operations the old way — manually, slowly, expensively.
-
-I didn't want to keep teaching people what AI *could* do. **I wanted to show businesses what AI *will* do — by building it for them.**
-
-So I resigned. Not to take a break. Not to "explore opportunities." To go directly to the businesses that are drowning in repetitive work and wire AI into their operations — today, not after another six months of upskilling.
-
-## What I Do Now
-
-I build **agentic workflows** — AI systems that don't just assist, but *execute*. Multi-step, context-aware, decision-making automations that replace hours of manual work with minutes of intelligent processing.
-
-My toolkit:
-
-- **Claude Code** for intelligent task execution and code generation
-- **Browser automation** for web-based workflow automation
-- **Google Workspace & API integrations** for connecting your existing tools
-- **Custom agentic pipelines** that chain multiple AI capabilities together
-
-## My Approach
-
-I don't believe in over-engineered solutions. I believe in:
-
-1. **Starting with the bottleneck** — finding the one process that's eating your team's time
-2. **Building fast** — deploying a working automation in days, not months
-3. **Iterating with you** — refining until it runs like clockwork
-
-## Why This Matters
-
-The gap between "AI-aware" and "AI-powered" is where most businesses are stuck right now. They've read the articles. They've sat through the webinars. They might have even completed a course.
-
-But their operations? Still manual. Still slow. Still expensive.
-
-I'm here to close that gap. One workflow at a time.
-
-<a href="/contact" class="btn">Let's talk</a>
+  <div class="cta-band">
+    <h2>Got work a robot<br>should be doing?</h2>
+    <a class="btn primary" href="{{ '/contact/' | relative_url }}">[ WORK WITH ME → ]</a>
+  </div>
+</div>

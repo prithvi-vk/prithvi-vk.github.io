@@ -2,6 +2,10 @@
 layout: post
 title: "Building in Public: An AI-Powered Compliance System for a CA Firm — Series Introduction"
 date: 2026-03-31
+tag: SERIES
+category: AUTOMATION
+cat_label: "AUTOMATION / SERIES"
+hero_excerpt: "I'm building a full compliance automation system for an Indian CA firm in public — portal monitoring, notice retrieval, deadline tracking, client comms. This is the index."
 description: "I'm building a full AI automation system for an Indian CA firm — portal monitoring, notice retrieval, deadline tracking, and client communication. Everything gets documented here. This is the series index."
 keywords: "build in public AI automation, CA firm compliance system, tax automation India series, AI agent development log, compliance automation build log, chartered accountant technology"
 ---

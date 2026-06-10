@@ -2,6 +2,10 @@
 layout: post
 title: "The CA Firm Automation Playbook: Why AI Agents Are the Biggest Leverage Play in Indian Tax Practice"
 date: 2026-03-31
+tag: PLAYBOOK
+category: TAX
+cat_label: "TAX / PLAYBOOK"
+hero_excerpt: "Indian CA firms juggle hundreds of clients across a dozen government portals. Here's the playbook for handing that monitoring and retrieval to AI agents."
 description: "Indian CA firms handle hundreds of clients across multiple government portals. AI agents can monitor, retrieve, classify, and deliver compliance updates autonomously. Here's the playbook for building these systems."
 keywords: "chartered accountant automation India, CA firm AI tools, tax compliance automation, government portal automation India, AI for tax professionals, automated compliance monitoring, CA practice management AI"
 ---

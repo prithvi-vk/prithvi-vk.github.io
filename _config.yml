@@ -1,6 +1,6 @@
 title: Prithvi VK
-description: "AI Automation Consultant — Building agentic workflows for CA firms and SMBs in India. Income tax portal automation, compliance monitoring, and intelligent document delivery."
-url: "https://prithvi-vk.github.io"
+description: "Prithvi VK — an AI-enabled operator in Bangalore building websites, agentic systems for SMBs, and tax-automation bots for CA firms across India. Field notes and the breakdowns behind every build."
+url: "https://prithvi.world"
 baseurl: ""
 future: true
 
@@ -8,7 +8,7 @@ author:
   name: Prithvi VK
   email: prithvi.vadakemuri@gmail.com
   linkedin: https://www.linkedin.com/in/prithvijay/
-  github: https://github.com/prithvi-vk
+  whatsapp: https://wa.me/918921379317
 
 permalink: /blog/:slug/
 markdown: kramdown

@@ -2,6 +2,10 @@
 layout: post
 title: "I Used Claude Code to Automate My Entire Setup — Here's What Happened"
 date: 2026-03-30
+tag: CLAUDE-CODE
+category: BUILD
+cat_label: "BUILD / CLAUDE CODE"
+hero_excerpt: "I set up an entire dev environment with nothing but Claude Code and plain English. No Googling, no StackOverflow — just telling an AI what I needed and watching it execute."
 ---
 
 Today I set up my entire development environment using nothing but Claude Code and natural language commands. No Googling. No StackOverflow. Just telling an AI what I needed and watching it execute.

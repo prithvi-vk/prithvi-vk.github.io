@@ -2,6 +2,10 @@
 layout: post
 title: "An Engineer Got Laid Off by Atlassian — and Gave a Masterclass on the Way Out"
 date: 2026-05-22
+tag: ATLASSIAN
+category: CAREER
+cat_label: "CAREER / SIGNAL"
+hero_excerpt: "A systems engineer posted a video titled 'I was laid off by Atlassian.' Eight years at the company, ended, and handled with rare clarity."
 description: "A systems engineer was laid off by Atlassian after 8 years — and answered with a 38-minute video explaining every system he built. I turned it into a structured written breakdown: load balancers, an Envoy control plane, ~2,000 proxies across 13 AWS regions, and the engineering lessons underneath."
 keywords: "Vasilios Syrakis, I was laid off by Atlassian, Atlassian infrastructure, Envoy proxy, xDS control plane, Sovereign Envoy control plane, platform engineering, Open Service Broker, AWS load balancing, Atlassian systems architecture, software engineering layoffs"
 ---

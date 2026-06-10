@@ -2,6 +2,10 @@
 layout: post
 title: "I Built an AI Agent That Checks the Income Tax Portal and Sends Notices via WhatsApp — Here's Exactly How"
 date: 2026-03-31
+tag: NOTICE-BOT
+category: TAX
+cat_label: "TAX / NOTICES"
+hero_excerpt: "A step-by-step build: logging into India's Income Tax portal, pulling the notices, and delivering the PDFs to WhatsApp. No scripts, no selectors, no maintenance."
 description: "A step-by-step breakdown of how I automated India's Income Tax e-Filing portal — from login to e-Proceedings to PDF download to WhatsApp delivery — using Claude Code. No scripts, no selectors, no maintenance."
 keywords: "income tax portal automation India, CA firm automation, e-filing notice automation, WhatsApp automation for chartered accountants, NFAC notice alert system, AI tax compliance automation, income tax e-proceedings automation"
 ---

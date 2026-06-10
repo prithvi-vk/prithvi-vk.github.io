@@ -2,6 +2,10 @@
 layout: post
 title: "Why Every SMB Needs Agentic Workflows in 2026"
 date: 2026-03-30
+tag: SMB
+category: AI
+cat_label: "AI / OPINION"
+hero_excerpt: "There's a gap forming between businesses that use AI as a tool and businesses that use AI as a worker. If you run an SMB, this is the shift that matters."
 ---
 
 There's a gap forming between businesses that use AI as a tool and businesses that use AI as a worker. The difference is **agentic workflows** — and if you're running an SMB, this is the most important technology shift since cloud computing.
