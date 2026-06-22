@@ -3,17 +3,14 @@ layout: default
 title: Home
 permalink: /
 stage_class: stage-fixed
-description: "Prithvi VK. A non-technical product enthusiast building agentic systems for founders, operators and disruptors. Ideas, findings, client-system stories and the breakdowns behind every build."
+description: "Prithvi VK. A non-technical product enthusiast building agentic systems for founders and operators. Ideas, findings, client-system stories and the breakdowns behind every build."
 ---
 
 <canvas id="globe"></canvas>
 
-<div class="edge edge-left">// ORBITAL INDEX · {{ site.posts | size }} TRANSMISSIONS LIVE</div>
-<div class="edge edge-right">// PRITHVI.WORLD · EST.2026 · 12.97°N 77.59°E</div>
-
 <div class="hero-copy">
   <span class="eyebrow"><span class="pulse"></span>PRITHVI VK · AGENTIC SYSTEMS</span>
-  <h1>Agentic systems for founders, operators &amp; <span class="hl">disruptors</span>.</h1>
+  <h1>Agentic systems for founders &amp; <span class="hl">operators</span>.</h1>
   <p class="sub">A non-technical product enthusiast obsessed with agentic AI. This is my notebook: ideas, findings, real client-system stories, and the breakdowns behind every build I ship.</p>
   <div class="cta">
     <a class="btn primary" href="{{ '/blog/' | relative_url }}">[ READ THE BLOG → ]</a>
@@ -21,7 +18,7 @@ description: "Prithvi VK. A non-technical product enthusiast building agentic sy
   </div>
 </div>
 
-{% assign total_posts = site.posts | size %}{% if total_posts > 6 %}{% assign shown_posts = 6 %}{% else %}{% assign shown_posts = total_posts %}{% endif %}
+{% assign total_posts = site.posts | size %}{% if total_posts > 10 %}{% assign shown_posts = 10 %}{% else %}{% assign shown_posts = total_posts %}{% endif %}
 <aside class="index" id="index">
   <div class="ihead"><span>TRANSMISSION_INDEX</span><b>{{ shown_posts | prepend: '0' | slice: -2, 2 }} / {{ total_posts | prepend: '0' | slice: -2, 2 }}</b></div>
   <!-- rows injected -->
@@ -41,9 +38,9 @@ description: "Prithvi VK. A non-technical product enthusiast building agentic sy
 function pvkHero() {
   "use strict";
 
-  /* ---------------- DATA (latest 6 posts, from Jekyll) ---------------- */
+  /* ---------------- DATA (latest 10 posts, from Jekyll) ---------------- */
   var POSTS = [
-  {% for post in site.posts limit:6 %}
+  {% for post in site.posts limit:10 %}
     {
       tag: {{ post.tag | default: post.title | jsonify }},
       cat: {{ post.cat_label | default: post.category | default: "FIELD NOTE" | jsonify }},
@@ -63,7 +60,11 @@ function pvkHero() {
     { rm:1.80, incl: 0.92, node: 3.10, phase:2.4, spd: 0.34 },
     { rm:1.50, incl: 1.28, node: 0.85, phase:4.0, spd: 0.48 },
     { rm:2.02, incl:-0.30, node: 2.55, phase:5.2, spd:-0.30 },
-    { rm:1.70, incl: 0.55, node: 4.40, phase:0.7, spd: 0.40 }
+    { rm:1.70, incl: 0.55, node: 4.40, phase:0.7, spd: 0.40 },
+    { rm:1.42, incl:-0.95, node: 5.50, phase:3.3, spd:-0.50 },
+    { rm:1.92, incl: 0.18, node: 1.20, phase:5.9, spd: 0.28 },
+    { rm:1.64, incl:-1.15, node: 3.70, phase:2.0, spd: 0.44 },
+    { rm:2.14, incl: 0.72, node: 0.10, phase:4.7, spd:-0.36 }
   ].slice(0, POSTS.length);
 
   /* ---------------- THEME (toggle owned by pvk.js) ---------------- */

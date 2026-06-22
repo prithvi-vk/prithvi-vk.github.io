@@ -16,9 +16,7 @@ marquee: '<span><b>// PRITHVI VK</b><i>// AI-ENABLED OPERATOR</i>// WEBSITES · 
     <div class="ab-portrait">
       <dl class="stat" style="border-top:none">
         <dt>BASE</dt><dd>BANGALORE, IN</dd>
-        <dt>FROM</dt><dd>KERALA</dd>
         <dt>FOCUS</dt><dd>AGENTIC SYSTEMS</dd>
-        <dt>STATUS</dt><dd class="live">TAKING WORK</dd>
       </dl>
     </div>
   </div>

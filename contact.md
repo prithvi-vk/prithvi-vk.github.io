@@ -3,7 +3,7 @@ layout: default
 title: Contact
 permalink: /contact/
 description: "Book a discovery call with Prithvi VK to design and build agentic systems for your team. Open a transmission or reach out directly."
-marquee: '<span><b>// OPEN A TRANSMISSION</b><i>// RESPONSE &lt; 24 HRS</i>// WHATSAPP +91 892 137 9317 // BANGALORE 12.97°N 77.59°E <b>// AVAILABLE FOR NEW WORK</b></span>'
+marquee: '<span><b>// OPEN A TRANSMISSION</b><i>// RESPONSE &lt; 24 HRS</i>// WHATSAPP +91 892 137 9317 // BANGALORE 12.97°N 77.59°E</span>'
 ---
 
 <div class="wrap">
@@ -23,12 +23,6 @@ marquee: '<span><b>// OPEN A TRANSMISSION</b><i>// RESPONSE &lt; 24 HRS</i>// WH
     </div>
 
     <aside class="ct-side">
-      <div class="sidehead">// SIGNAL STATUS</div>
-      <div class="status">
-        <div class="s1">AVAILABLE · TAKING NEW WORK</div>
-        <div class="s2">Booking new engagements this quarter.</div>
-      </div>
-
       <div class="sidehead">// DIRECT CHANNELS</div>
       <ul class="channels">
         <li><a href="{{ site.author.whatsapp }}">WHATSAPP<span class="arr">→</span></a></li>
