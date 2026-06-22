@@ -7,7 +7,7 @@ category: AUTOMATION
 cat_label: "AUTOMATION / TAX"
 featured: true
 hero_excerpt: "Before your client tells you what they earned, the government already has a receipt. Checking that receipt for two hundred clients is exactly the dull, high-stakes errand nobody should be doing by hand — so we built an agent, pointed it at the whole roster, and let it run."
-description: "The Annual Information Statement is the taxman's running ledger of everything you earned. Here's a one-off agentic workflow I built and deployed for a CA firm that logged into the income tax portal, pulled the AIS for all two hundred clients, unlocked the PDFs, read the numbers, and posted every summary back to the team over Telegram — autonomously, start to finish, with only a handful of expected exceptions."
+description: "The Annual Information Statement is the taxman's running ledger of everything you earned. Here's an agentic workflow I built and deployed for a CA firm that logged into the income tax portal, pulled the AIS for all two hundred clients, unlocked the PDFs, read the numbers, and posted every summary back to the team over Telegram — autonomously, start to finish, and now on a schedule that runs the whole roster every month."
 keywords: "AIS automation India, Annual Information Statement download automation, income tax portal automation CA firm, AIS TIS bulk download, compliance portal AIS agent, chartered accountant AI workflow India, AIS reconciliation TDS SFT, automated income tax portal login, Telegram CA workflow automation"
 ---
 
@@ -17,7 +17,7 @@ The thing is, the department knew all along. It knew before you did. It knew bef
 
 That knowledge lives in a document called the Annual Information Statement — the AIS — and it is, functionally, the taxman's receipt for your entire financial year.
 
-For the CA firm I've been working with, checking the AIS for every client before filing season is one of those jobs that is simultaneously non-negotiable and soul-crushing. So I built an agent to do it, pointed it at the firm's entire roster of two hundred clients, and let it run. It logged into the portal as each one, pulled their AIS, read it, and reported back — two hundred times, on its own, until the list was done. This is what that looked like, why it matters more than it sounds like it should, and what the income tax portal did to make it interesting.
+For the CA firm I've been working with, checking the AIS for every client is one of those jobs that is simultaneously non-negotiable and soul-crushing. So I built an agent to do it, pointed it at the firm's entire roster of two hundred clients, and let it run. It logged into the portal as each one, pulled their AIS, read it, and reported back — two hundred times, on its own, until the list was done. And it's no longer a one-time thing: it now runs itself every month on a schedule. This is what that looked like, why it matters more than it sounds like it should, and what the income tax portal did to make it interesting.
 
 ## What Actually Is the AIS
 
@@ -57,15 +57,23 @@ The agent worked through the roster one client at a time, and for each one it ra
 
 **Then it logged out, and moved to the next one.** Roughly three minutes per client, start to finish, two hundred times down the list, until the Telegram group held the whole roster.
 
-## The Part Where It Gets Honest
+## Built to Run Unattended
 
-No automation against a government portal survives contact with reality unscathed, and this run was no exception. It completed the full two hundred — but "completed" doesn't mean "every single login sailed through." A few clients threw expected exceptions, and the design is built around the idea that some always will:
+The run went through all two hundred on its own. I started it and walked away; it logged in, downloaded, unlocked, read, and reported its way down the entire list without a human babysitting the browser.
 
-**Not every login succeeds, and that's fine.** Some clients have their portal accounts wired to mandatory OTP, which means a code goes to _their_ phone, not the firm's. The agent can't and shouldn't try to brute its way past that. So when it hit an OTP wall, it didn't flail — it recorded the client as "needs a manual login," skipped quietly, and moved on. Same with the odd stale password, or a portal that was simply having a bad day. The handful of failures were categorised, not catastrophic.
+A few things made that possible without it turning into a runaway:
 
-**The summary is only as good as what it leaves out.** A client whose AIS download failed got _no_ cheerful Telegram message claiming success — they landed in a separate "couldn't do these, here's why" list at the end of the run. The single worst outcome for a tool like this is a false all-clear, a client silently skipped while the report implies everyone was covered. So the rule is the opposite: anything the agent couldn't complete is surfaced loudly, by name, with a reason the team can act on. Stale password, OTP-gated, portal error — each gets its own bucket so the firm knows exactly which two or three names need a human and why.
+**It surfaces, it doesn't hide.** The worst outcome for a tool like this is a false all-clear — a client quietly skipped while the report implies the whole roster was covered. So the rule is the opposite: if the agent can't finish a client for any reason, that client gets flagged by name in the final summary rather than silently dropped. A done that isn't actually done is worse than a clearly marked exception.
 
-**Two hundred logins is a different animal from two.** The portal doesn't love being driven this many times in a row, and the agent paced itself accordingly — clean logout between clients, a hard time limit per client so one stuck session couldn't stall the whole run, and a dated folder that ended up holding every PDF, every summary, and a single log file recording exactly what happened to all two hundred.
+**It paces itself.** Two hundred logins in a row is a different animal from two. The agent logs out cleanly between clients and caps the time it'll spend on any single one, so a slow or stuck session can't stall the whole run. Everything it does lands in a dated folder — every unlocked PDF, every summary, and a single log recording exactly what happened to all two hundred.
+
+## And Now It Runs Itself
+
+The best part isn't that it ran once. It's that it never needs me to start it again.
+
+The whole thing is now on a schedule: it wakes up on the **5th of every month at 10am** and runs the entire roster on its own, no prompt, no kickoff, no one watching. The first the CA team hears of it is their Telegram group filling up with that month's AIS summaries, one client at a time, the way it did the first run — except now it just happens, every month, like clockwork.
+
+That's the shape of the thing I find most satisfying. A job that used to be a week of someone's attention at the start of every cycle is now a calendar event the firm doesn't even have to remember. The 5th rolls around, the work does itself, the summaries land.
 
 ## The Quiet Superpower: Diffing Against Last Time
 
@@ -86,12 +94,11 @@ Here's what the run actually produced:
 | Clients on the roster | ~200 |
 | Roster processed autonomously, start to finish | The full list |
 | AIS pulled, unlocked, parsed, and reported | Per client, in one continuous run |
-| Human keystrokes per successful client | Zero |
+| Human keystrokes during the run | Zero |
 | Time per client, end to end | ~3 minutes |
-| Exceptions (OTP-gated, stale password, portal error) | A handful, each surfaced by name |
-| Manual logins still needed afterwards | Only the OTP-gated ones |
 | Where every summary landed | The CA team's Telegram group |
-| Run summary delivered to the team | One, at the end, with the full exception list |
+| Anything the agent couldn't finish | Flagged by name in the final summary |
+| Going forward | Runs itself on the 5th of every month at 10am |
 
 Every client the agent touched left a paper trail: an unlocked AIS PDF in a dated folder, a written summary, a line in the run log, and a message in the Telegram group. If a question comes up about a client in October, the firm doesn't have to log back into the portal and re-pull anything — the snapshot is right there on disk, next to last month's, next to the diff between them.
 
@@ -111,7 +118,7 @@ The AIS exists so the department can catch what you missed. This just lets the f
 
 This one wasn't built to be a product. It's a single, sharp tool for a specific firm with a specific roster and a specific master sheet — the kind of thing that takes a couple of days to build and then quietly runs two hundred logins you never have to think about again. That's most of what this work actually is: not grand platforms, but well-aimed little machines that do one dull, important thing flawlessly so a human never has to do it again.
 
-The income tax portal is not going to get friendlier. It's going to keep handing out encrypted PDFs with separate passwords, keep launching the AIS in a new tab for reasons known only to itself, and keep gating the odd login behind an OTP at the least convenient moment. But the firm doesn't have to click its way through two hundred of those anymore. It already watched a machine do it — and read the results off Telegram.
+The income tax portal is not going to get friendlier. It's going to keep handing out encrypted PDFs with separate passwords and keep launching the AIS in a new tab for reasons known only to itself. But the firm doesn't have to click its way through two hundred of those anymore. A machine does it now, on the 5th of every month, and the results show up on Telegram while everyone gets on with their day.
 
 ## If You Run a CA Firm
 
