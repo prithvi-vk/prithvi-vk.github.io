@@ -6,8 +6,8 @@ tag: GST HUNTER
 category: AUTOMATION
 cat_label: "AUTOMATION / TAX"
 featured: true
-hero_excerpt: "I've spent four months building a system that runs a CA firm's entire monthly GST cycle on the live portal — GSTR-1, IMS, 2B, 3B, challan, filing — and pauses only twice, for a human. It works. So here's the plan: a controlled pilot with ten CA firms, and then, by the end of next month, the whole thing goes 100% open source."
-description: "GST Hunter is an end-to-end system that runs the monthly GST cycle for a CA firm on the live GST portal — no GSP, no API, just the real portal, driven properly. Four months of building and iterating later, it's ready: a controlled pilot for ten CA firms, and a full open-source release by the end of August."
+hero_excerpt: "I've spent four months building a system that runs a CA firm's entire monthly GST cycle on the live portal — GSTR-1, IMS, 2B, 3B, challan, filing — and pauses only twice, for a human. It works. So here's the plan: by the end of next month the whole thing goes 100% open source, and over the next few months I'm setting it up and running it, hands-on, for ten CA firms."
+description: "GST Hunter is an end-to-end system that runs the monthly GST cycle for a CA firm on the live GST portal — no GSP, no API, just the real portal, driven properly. Four months of building and iterating later, it's ready: a full open-source release at the end of August, and ten CA firms getting it set up and running on their own rosters over the next few months."
 keywords: "GST automation India open source, GST filing software CA firm, GSTR-1 GSTR-3B automation, IMS GSTR-2B reconciliation tool, open source GST filing system, chartered accountant AI automation India, GST portal automation Playwright, CA firm compliance software pilot"
 ---
 
@@ -21,7 +21,7 @@ And now the part I've been sitting on for a few weeks:
 
 **By the end of next month, I'm open-sourcing all of it.** The engine, the dashboard, the tax logic, the portal choreography, the four months of scar tissue. All of it, in public, free.
 
-Before that, a controlled pilot with **ten CA firms**. More on both at the bottom. First, let me show you the thing, because "I built a GST tool" is a sentence that has been used to describe some truly indefensible software, and I'd like to earn the benefit of the doubt.
+Alongside that, over the next two to three months, I'm running it live for **ten CA firms** — because code being free and a system being _running in your practice_ are two very different things, and I'd rather close that gap in person. More on both at the bottom. First, let me show you the thing, because "I built a GST tool" is a sentence that has been used to describe some truly indefensible software, and I'd like to earn the benefit of the doubt.
 
 ## What the Monthly Cycle Actually Is
 
@@ -158,21 +158,25 @@ I've thought about this a lot and I keep landing in the same place. Here's the r
 
 So: end of August. I'll post the repository link here and on LinkedIn when it's up.
 
-## Before That: A Pilot. Ten Firms.
+## The Pilot: Ten Firms, Over the Next Few Months
 
-Open-sourcing something that files real returns for real money is a serious act, and I'm not going to do it off the back of one firm's happy experience, however good that experience has been.
+Here's the thing about open-sourcing infrastructure: a public repository is not a working system. It's a pile of excellent parts and a very long afternoon.
 
-So before the code goes public, I'm running a **controlled pilot with ten CA firms.**
+Somebody has to stand it up. Point it at your portal logins. Wire it to your clients' data. Teach it your firm's quirks. Sit next to it through the first cycle, when the 20th is coming and the portal is doing something it has never done before. That work is real, it is not optional, and "just clone the repo" is a sentence written by people who have never watched a CA firm's month-end.
+
+So the two tracks run **in parallel** over the next two to three months. The code goes public at the end of August regardless — that's happening, and it isn't contingent on anything. And separately, I'm taking **ten CA firms** through a hands-on pilot: I set it up, I run it with them, I stay in the trenches through their first live cycles.
 
 Here's the honest deal, stated plainly:
 
-**What you get.** The full system, running your monthly GST cycle end to end — GSTR-1, IMS and 2B, GSTR-3B, challan, filing. The dashboard you've seen above. Your firm's knowledge captured as rules. A complete audit trail. And me, personally, in the trenches with you for your first cycles, because the first cycle is where the surprises live.
+**What you get.** The full system, running your monthly GST cycle end to end — GSTR-1, IMS and 2B, GSTR-3B, challan, filing. The dashboard you've seen above. Your firm's knowledge captured as rules. A complete audit trail. Set up for you, not handed to you as a zip file. And me, personally, alongside your team for the first cycles, because the first cycle is where the surprises live.
 
-**What I get.** Your edge cases. Every firm has clients that break assumptions — an exporter, a marketplace seller, a fully exempt trust, a landlord who never registered, a client whose "sales register" is a photograph of a notebook. Ten firms is enough variety to make the open-source release genuinely robust instead of narrowly tuned to one practice in Calicut.
+**What I get.** Your edge cases. Every firm has clients that break assumptions — an exporter, a marketplace seller, a fully exempt trust, a landlord who never registered, a client whose "sales register" is a photograph of a notebook. Ten firms across ten rosters is what turns a system that works into a system that _keeps_ working, and every fix goes straight back into the public code.
 
 **What it costs.** Founding-partner terms, and we'll talk about it like adults. I'm optimising for the right ten firms, not the highest ten bids.
 
 **What I need from you.** A real roster, a real cycle, and a real willingness to tell me when something is wrong. I want the firms who'll send me an annoyed message at 9pm on the 19th, not the ones who'll politely say it's fine.
+
+And if you're not one of the ten? The code is still yours, free, at the end of August — and if you get stuck standing it up, come and find me. The point of publishing it is that it gets _used_, not that it gets starred.
 
 The gates stay where they are, by the way. Your CA approves every draft. Your signatory holds every OTP. The system does the clicking; your firm does the deciding. That's not a limitation I'm working around — it's the design, and it isn't moving.
 
@@ -184,10 +188,10 @@ The GST portal is not going to improve. The captcha is not going to get kinder. 
 
 But nobody at your firm has to keep clicking through it. That part is solved. It has been running against real returns, on real deadlines, with real money moving, and by the end of next month you'll be able to read every line of how.
 
-If you want one of the ten pilot slots — or you just want to poke holes in the architecture, which is a perfectly good reason to get in touch — [let's talk](/contact). No pitch. Just a conversation.
+If you want one of the ten pilot slots — or you'd rather wait for the code and just need a hand getting it running — [let's talk](/contact). No pitch. Just a conversation.
 
 ---
 
-**I build AI systems that do the real, unglamorous compliance work CA firms do by hand today.** GST Hunter is going open source at the end of August; ten pilot firms get it running first, with me in the trenches.
+**I build AI systems that do the real, unglamorous compliance work CA firms do by hand today.** GST Hunter goes open source at the end of August. Ten firms are getting it set up and running on their own rosters over the next few months, with me alongside them.
 
 [Book a free discovery call](/contact)
