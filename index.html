@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 42 · AI Search Visibility Lab</title>
+<meta name="description" content="Chapter 42 is an AI search visibility lab based in Dubai, UAE. We check whether ChatGPT, Gemini, Claude and Perplexity recommend your brand, and fix it when they do not. Site launching soon.">
+<link rel="canonical" href="https://chapter42.xyz/">
+<meta property="og:title" content="Chapter 42 · AI Search Visibility Lab">
+<meta property="og:description" content="Is ChatGPT recommending your competitor? We are building the check. Launching soon.">
+<meta property="og:url" content="https://chapter42.xyz/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F0D072">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F0D072'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-weight='700' font-size='24' fill='%230B0E14'%3E[42]%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/figtree-400-900.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Chapter 42",
+  "description": "AI search visibility lab. We measure and improve how often AI assistants recommend a brand.",
+  "url": "https://chapter42.xyz/",
+  "email": "hello@chapter42.xyz",
+  "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+}
+</script>
+<style>
+  @font-face { font-family: 'Figtree'; src: url('/fonts/figtree-400-900.woff2') format('woff2'); font-weight: 400 900; font-display: swap; }
+  @font-face { font-family: 'Space Mono'; src: url('/fonts/space-mono-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+  @font-face { font-family: 'Space Mono'; src: url('/fonts/space-mono-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
+  :root {
+    --field: #F0D072;
+    --text: #0B0E14;
+    --text-2: #3B3F45;
+    --ink: #17202E;
+    --bg: #FFFFFF;
+    --green: #1F6F5C;
+    --border: #E5E5E0;
+    --r: 24px;
+    --pill: 999px;
+    --shadow: 0 2px 6px rgba(23, 32, 46, .06), 0 22px 60px rgba(23, 32, 46, .15);
+    --display: 'Figtree', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'Space Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--field);
+    color: var(--text);
+    font-family: var(--display);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .wm { font-weight: 900; font-size: 18px; letter-spacing: -.035em; display: inline-flex; align-items: baseline; gap: 8px; text-decoration: none; }
+  .mark { font-family: var(--mono); font-weight: 700; font-size: 16px; letter-spacing: -.04em; }
+  .tag { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+
+  main { flex: 1; display: flex; align-items: center; position: relative; }
+  .watermark {
+    position: absolute; right: -2vw; top: 50%; transform: translateY(-50%);
+    font-family: var(--mono); font-weight: 700; font-size: clamp(180px, 34vw, 460px);
+    letter-spacing: -.06em; line-height: 1; color: rgba(11, 14, 20, .06);
+    pointer-events: none; user-select: none;
+  }
+  .hero { position: relative; padding: 48px 0 72px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(31,111,92,.5); animation: pulse 2.2s infinite; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(31,111,92,0); } 100% { box-shadow: 0 0 0 0 rgba(31,111,92,0); } }
+  h1 { font-weight: 900; font-size: clamp(2.4rem, 6.4vw, 4.4rem); line-height: 1.02; letter-spacing: -.035em; max-width: 13ch; }
+  .lede { margin-top: 22px; font-size: clamp(16.5px, 1.6vw, 19px); color: var(--text-2); max-width: 46ch; }
+
+  .card {
+    margin-top: 40px; background: var(--bg); border-radius: var(--r); box-shadow: var(--shadow);
+    padding: 26px 28px; max-width: 560px;
+  }
+  .card .tag { color: var(--text-2); }
+  .card p { margin-top: 10px; font-size: 15.5px; }
+  .actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; border-radius: var(--pill);
+    padding: 13px 22px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--green); color: #fff; }
+  .btn-ghost { border: 1.5px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--text); }
+
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding-top: 22px; padding-bottom: 26px; border-top: 1px solid rgba(11,14,20,.12); font-size: 13.5px; color: var(--text-2); }
+
+  @media (max-width: 600px) {
+    header .tag { display: none; }
+    .hero { padding: 24px 0 48px; }
+    .card { padding: 22px; }
+    .btn { width: 100%; }
+    .watermark { top: 18%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .dot { animation: none; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="wm" href="/"><span class="mark">[42]</span> Chapter 42</a>
+    <span class="tag">AI Search Visibility Lab</span>
+  </div>
+</header>
+
+<main>
+  <div class="watermark" aria-hidden="true">[42]</div>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow tag"><span class="dot" aria-hidden="true"></span> Launching soon</div>
+      <h1>Is ChatGPT recommending your competitor?</h1>
+      <p class="lede">When someone asks AI which brand to use, one name comes back. Most brands have never checked whose. We are building the check.</p>
+
+      <div class="card">
+        <span class="tag">While we finish the site</span>
+        <p>Want to know where your brand stands in ChatGPT, Gemini, Claude and Perplexity before then? Write to us and we will run a readout for you.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:hello@chapter42.xyz?subject=AI%20search%20readout">Email hello@chapter42.xyz</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Chapter 42 · Based in Dubai, UAE</span>
+    <span>The answer is 42. The question is whether AI says your name.</span>
+  </div>
+</footer>
+</body>
+</html>
